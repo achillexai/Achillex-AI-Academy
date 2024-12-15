@@ -1,4 +1,5 @@
 "use client";
+import items from "razorpay/dist/types/items";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -23,8 +24,7 @@ const Contact = () => {
                 <div className="banner_content" data-aos="fade-right">
                   <h1 className="text-white">Contact Us</h1>
                   <p className="text-white">
-                    Huis autem vel eum iure reprehenderit aui in ea voluptate
-                    velit esse ruam nihil molestiae conseuatur.
+                    Feel free to reach out to us with any questions or concerns.
                   </p>
                   <div className="box">
                     <span className="mb-0">Home</span>
@@ -65,8 +65,15 @@ const Contact = () => {
                 <h5>Our Details</h5>
                 <h2>Contact Information</h2>
                 <div className="contact-box">
-                  <div className="box-image">
-                    <figure className="contact-location">
+                  <div className="box-image ">
+                    <figure
+                      className="contact-location"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <img
                         src="./assets/images/contact-location.png"
                         alt=""
@@ -77,13 +84,21 @@ const Contact = () => {
                   <div className="box-content">
                     <h4>Location:</h4>
                     <p className="text-size-18">
-                      121 King Street, Melbourne Victoria 3000 Australia
+                      No 139, Indrani Nilayam, 2nd Floor, 4th Cross, 4th Main,
+                      BEML Layout Thubarahalli, Bangalore, 560066
                     </p>
                   </div>
                 </div>
                 <div className="contact-box box-mb">
                   <div className="box-image">
-                    <figure className="contact-phone justify-center items-center">
+                    <figure
+                      className="contact-phone"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <img
                         src="./assets/images/contact-phone.png"
                         alt=""
@@ -97,25 +112,24 @@ const Contact = () => {
                     <h4 className="heading">Phone:</h4>
                     <p>
                       <a
-                        href="tel:+61383766284"
+                        href="tel:+919019006620"
                         className="text-decoration-none text text-size-18"
                       >
-                        (+61 3 8376 6284)
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        href="tel:+80023456789"
-                        className="mb-0 text-decoration-none text text-size-18"
-                      >
-                        (+800 2345 6789)
+                        (+91-9019006620)
                       </a>
                     </p>
                   </div>
                 </div>
                 <div className="contact-box">
                   <div className="box-image">
-                    <figure className="contact-email">
+                    <figure
+                      className="contact-email"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <img
                         src="./assets/images/contact-email.png"
                         alt=""
@@ -130,15 +144,7 @@ const Contact = () => {
                         href="mailto:info@artelligence.com"
                         className="text-decoration-none text-size-18"
                       >
-                        info@artelligence.com
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        href="mailto:artelligence@gmail.com"
-                        className="mb-0 text-decoration-none text-size-18"
-                      >
-                        artelligence@gmail.com
+                        support@achillexai.academy
                       </a>
                     </p>
                   </div>
@@ -150,13 +156,12 @@ const Contact = () => {
                 <div className="need_content">
                   <h3>Need any Help!</h3>
                   <p className="text-size-16">
-                    Eiusmod tempor in labore et dolore magna aliqua ruis
-                    ultrices gravida sit amet.
+                    Please fill out the form below to get in touch with us.
                   </p>
                   <form
                     id="contactpage"
                     method="POST"
-                    action="./contact-form.php"
+                    action="/contact-form.php"
                   >
                     <div className="row">
                       <div className="col-12">

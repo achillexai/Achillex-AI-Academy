@@ -743,7 +743,7 @@ const LandingPage: React.FC = () => {
                   <form
                     id="contactpage"
                     method="POST"
-                    action="./contact-form.php"
+                    action="/contact-form.php"
                   >
                     <div className="row">
                       <div className="col-12">
