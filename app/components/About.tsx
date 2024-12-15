@@ -1,6 +1,7 @@
 "use client";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Counter } from "./Counter";
 
 const About = () => {
   return (
@@ -135,15 +136,21 @@ const About = () => {
           <div className="row">
             <div className="col-lg-3 col-md-3 col-sm-6 col-6">
               <div className="counter-box">
-                <figure className="counter-image1">
+                <figure
+                  className="counter-image1"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <img
                     src="./assets/images/counter-image1.png"
                     alt=""
                     className="img-fluid"
                   />
                 </figure>
-                <h3 className="mb-0 counter">100</h3>
-                <span className="mb-0 plus">+</span>
+                <Counter end={100} duration={2000} suffix="+" />
                 <span className="mb-0 text1 text-size-16">
                   Inbuilt AI Tutors
                 </span>
@@ -151,29 +158,42 @@ const About = () => {
             </div>
             <div className="col-lg-3 col-md-3 col-sm-6 col-6">
               <div className="counter-box">
-                <figure className="counter-image2">
+                <figure
+                  className="counter-image2"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <img
                     src="./assets/images/counter-image2.png"
                     alt=""
                     className="img-fluid"
                   />
                 </figure>
-                <h3 className="mb-0 counter">20</h3>
-                <span className="mb-0 plus">+</span>
+
+                <Counter end={20} duration={2000} suffix="+" />
                 <span className="mb-0 text1 text-size-16">Countries</span>
               </div>
             </div>
             <div className="col-lg-3 col-md-3 col-sm-6 col-6">
               <div className="counter-box">
-                <figure className="counter-image3">
+                <figure
+                  className="counter-image3"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <img
                     src="./assets/images/counter-image3.png"
                     alt=""
                     className="img-fluid"
                   />
                 </figure>
-                <h3 className="mb-0 counter">300</h3>
-                <span className="mb-0 plus">+</span>
+                <Counter end={300} duration={2000} suffix="+" />
                 <span className="mb-0 text1 text-size-16">
                   Subjects Covered
                 </span>
@@ -181,15 +201,21 @@ const About = () => {
             </div>
             <div className="col-lg-3 col-md-3 col-sm-6 col-6">
               <div className="counter-box">
-                <figure className="counter-image4">
+                <figure
+                  className="counter-image4"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <img
                     src="./assets/images/counter-image4.png"
                     alt=""
                     className="img-fluid"
                   />
                 </figure>
-                <h3 className="mb-0 counter">1000</h3>
-                <span className="mb-0 plus">+</span>
+                <Counter end={1000} duration={2000} suffix="+" />
                 <span className="mb-0 text1 text-size-16">
                   Personalized Tutors Created
                 </span>

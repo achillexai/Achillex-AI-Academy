@@ -84,7 +84,7 @@ const Footer = () => {
                     <li>
                       <i className="fa-solid fa-angle-right"></i>
                       <Link
-                        href="/pricing"
+                        href="/subscriptions"
                         className="text-size-16 text text-decoration-none"
                       >
                         Pricing

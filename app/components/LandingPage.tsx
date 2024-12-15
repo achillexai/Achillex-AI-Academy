@@ -258,7 +258,14 @@ const LandingPage: React.FC = () => {
                 <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="service-box box-mb">
-                      <figure className="service-reboticon">
+                      <figure
+                        className="service-reboticon"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
                         <Image
                           src="/assets/images/service-reboticon.png"
                           alt=""
@@ -282,7 +289,14 @@ const LandingPage: React.FC = () => {
                   <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="box-top">
                       <div className="service-box box-mb">
-                        <figure className="service-learningicon">
+                        <figure
+                          className="service-learningicon"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
                           <Image
                             src="/assets/images/service-learningicon.png"
                             alt=""
@@ -308,7 +322,14 @@ const LandingPage: React.FC = () => {
                 <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="service-box">
-                      <figure className="service-scienceicon">
+                      <figure
+                        className="service-scienceicon"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
                         <Image
                           src="/assets/images/service-scienceicon.png"
                           alt=""
@@ -332,7 +353,14 @@ const LandingPage: React.FC = () => {
                   <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="box-top">
                       <div className="service-box">
-                        <figure className="service-analysicon">
+                        <figure
+                          className="service-analysicon"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
                           <Image
                             src="/assets/images/service-analysicon.png"
                             alt=""
@@ -428,7 +456,7 @@ const LandingPage: React.FC = () => {
                         </p>
                         <figure className="testimonial-image mb-0">
                           <img
-                            src="./assets/images/testimonial-image.png"
+                            src="./assets/images/person2.png"
                             alt=""
                             className="img-fluid"
                           />
@@ -462,7 +490,7 @@ const LandingPage: React.FC = () => {
                         </p>
                         <figure className="testimonial-image mb-0">
                           <img
-                            src="./assets/images/testimonial-image.png"
+                            src="./assets/images/person3.png"
                             alt=""
                             className="img-fluid"
                           />

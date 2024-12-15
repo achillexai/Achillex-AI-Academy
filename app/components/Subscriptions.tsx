@@ -17,58 +17,64 @@ const Subscriptions = () => {
           </div>
           <div className="row">
             <div className="col-lg-4 col-md-4 col-sm-6 col-12">
-              <div className="case-box overlay">
-                <figure className="image mb-0">
-                  <Image
-                    src="/assets/images/case-image1.png"
-                    alt=""
-                    width={400}
-                    height={300}
-                  />
-                </figure>
-                <div className="content">
-                  <span className="text-white">Starter</span>
-                  <h4 className="text-white text-5xl">10$</h4>
-                  <p className="text-sm text-white">/month</p>
-                  <i className="circle fa-regular fa-angle-right"></i>
+              <Link href="/dashboard">
+                <div className="case-box overlay">
+                  <figure className="image mb-0">
+                    <Image
+                      src="/assets/images/case-image1.png"
+                      alt=""
+                      width={400}
+                      height={300}
+                    />
+                  </figure>
+                  <div className="content">
+                    <span className="text-white">Starter</span>
+                    <h4 className="text-white text-5xl">10$</h4>
+                    <p className="text-sm text-white">/month</p>
+                    <i className="circle fa-regular fa-angle-right"></i>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-lg-4 col-md-4 col-sm-6 col-12">
-              <div className="case-box overlay">
-                <figure className="image mb-0">
-                  <Image
-                    src="/assets/images/case-image2.png"
-                    alt=""
-                    width={400}
-                    height={300}
-                  />
-                </figure>
-                <div className="content">
-                  <span className="text-white">Professional</span>
-                  <h4 className="text-white text-5xl">30$</h4>
-                  <p className="text-sm text-white">/month</p>
-                  <i className="circle fa-regular fa-angle-right"></i>
+              <Link href="/dashboard">
+                <div className="case-box overlay">
+                  <figure className="image mb-0">
+                    <Image
+                      src="/assets/images/case-image2.png"
+                      alt=""
+                      width={400}
+                      height={300}
+                    />
+                  </figure>
+                  <div className="content">
+                    <span className="text-white">Professional</span>
+                    <h4 className="text-white text-5xl">30$</h4>
+                    <p className="text-sm text-white">/month</p>
+                    <i className="circle fa-regular fa-angle-right"></i>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-lg-4 col-md-4 col-sm-6 col-12">
-              <div className="case-box overlay">
-                <figure className="image mb-0">
-                  <Image
-                    src="/assets/images/case-image3.png"
-                    alt=""
-                    width={400}
-                    height={300}
-                  />
-                </figure>
-                <div className="content">
-                  <span className="text-white">Teams</span>
-                  <h4 className="text-white text-5xl">50$</h4>
-                  <p className="text-sm text-white">/month</p>
-                  <i className="circle fa-regular fa-angle-right"></i>
+              <Link href="/dashboard">
+                <div className="case-box overlay">
+                  <figure className="image mb-0">
+                    <Image
+                      src="/assets/images/case-image3.png"
+                      alt=""
+                      width={400}
+                      height={300}
+                    />
+                  </figure>
+                  <div className="content">
+                    <span className="text-white">Teams</span>
+                    <h4 className="text-white text-5xl">50$</h4>
+                    <p className="text-sm text-white">/month</p>
+                    <i className="circle fa-regular fa-angle-right"></i>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
           <div className="button">
