@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -20,7 +21,7 @@ const Pricing = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-7 col-md-6 col-sm-12 col-12">
-                <div className="banner_content" data-aos="fade-right">
+                <div className="banner_content">
                   <h1 className="text-white">Our Pricing</h1>
                   <p className="text-white">
                     Discover our competitive pricing plans tailored to your
@@ -60,7 +61,9 @@ const Pricing = () => {
       <Subscriptions />
 
       {/* Footer Section */}
-      <Footer />
+      <section className="mb-[-50px]">
+        <Footer />
+      </section>
     </>
   );
 };

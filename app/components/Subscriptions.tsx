@@ -15,7 +15,7 @@ const Subscriptions = () => {
               </div>
             </div>
           </div>
-          <div className="row" data-aos="fade-up">
+          <div className="row">
             <div className="col-lg-4 col-md-4 col-sm-6 col-12">
               <div className="case-box overlay">
                 <figure className="image mb-0">

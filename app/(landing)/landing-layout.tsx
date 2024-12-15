@@ -18,7 +18,7 @@ export default function LandingLayout({
         strategy="beforeInteractive"
       />
 
-      <Script src="/assets/js/bootstrap.min.js" strategy="beforeInteractive" />
+      <Script src="/assets/js/bootstrap.min.js" strategy="afterInteractive" />
 
       {/* Scripts that depend on jQuery */}
       <Script src="/assets/js/video_link.js" strategy="afterInteractive" />

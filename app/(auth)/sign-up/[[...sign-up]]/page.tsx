@@ -12,7 +12,7 @@ export default function Page() {
             className="absolute top-4 left-4 flex items-center space-x-2 border
             border-gray-300 rounded-full shadow-lg p-3 transition-all"
             style={{
-              backgroundColor: "#920c35",
+              backgroundColor: "#1d8098",
               color: "#fff",
               cursor: "pointer",
             }}

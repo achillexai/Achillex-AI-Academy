@@ -20,7 +20,7 @@ const Visionary = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-7 col-md-6 col-sm-12 col-12">
-                <div className="banner_content" data-aos="fade-right">
+                <div className="banner_content">
                   <h1 className="text-white">
                     Meet the Visionary: Sai Kiran CS
                   </h1>
@@ -104,7 +104,7 @@ const Visionary = () => {
               </div>
             </div>
           </div>
-          <div className="row d-flex justify-content-center" data-aos="fade-up">
+          <div className="row d-flex justify-content-center">
             <div className="col-lg-4 col-md-4 col-sm-12 col-12">
               <div className="team-box">
                 <figure>

@@ -595,7 +595,10 @@ const LandingPage: React.FC = () => {
                                   aria-expanded="false"
                                   aria-controls="collapseOne"
                                 >
-                                  <h4>Can I cancel at anytime?</h4>
+                                  <h4>
+                                    What makes Achillex AI Academy different
+                                    from other online learning platforms?
+                                  </h4>
                                 </a>
                               </div>
                               <div
@@ -605,7 +608,14 @@ const LandingPage: React.FC = () => {
                               >
                                 <div className="card-body visible">
                                   <p className="text-size-18 text-left mb-0">
-                                    Yes, you can cancel anytime
+                                    Achillex AI Academy emphasizes personalized,
+                                    practical learning. We offer tailored AI
+                                    courses with mentorship from industry
+                                    experts, hands-on projects, and tools to
+                                    apply your knowledge directly to real-world
+                                    scenarios. Our focus is on empowering
+                                    learners for impactful careers in AI-related
+                                    fields.
                                   </p>
                                 </div>
                               </div>
@@ -621,7 +631,8 @@ const LandingPage: React.FC = () => {
                                   aria-controls="collapseTwo"
                                 >
                                   <h4>
-                                    My team has credits. How do we use them?
+                                    How is Achillex AI Academy&#39;s AI
+                                    Different from ChatGPT or Gemini?
                                   </h4>
                                 </a>
                               </div>
@@ -632,9 +643,21 @@ const LandingPage: React.FC = () => {
                               >
                                 <div className="card-body visible">
                                   <p className="text-size-18 text-left mb-0">
-                                    Once your team signs up for a subscription
-                                    plan. This is where we sit down, grab a cup
-                                    of coffee and dial in the details.
+                                    Achillex AI Academy&#39;s AI tutors are
+                                    powered by our proprietary Achillex AI,
+                                    which is uniquely designed for education.
+                                    Achilles AI leverages insights and data from
+                                    general- purpose AIs like ChatGPT and Gemini
+                                    but integrates them into a highly customized
+                                    framework. This makes our AI:
+                                    <br />
+                                    1. Exclusive to Achillex AI Academy,
+                                    tailored specifically for skill-building and
+                                    educational excellence.
+                                    <br />
+                                    2. Optimized to provide structured,
+                                    adaptive, and personalized learning paths
+                                    that general-purpose AIs cannot replicate.
                                   </p>
                                 </div>
                               </div>
@@ -650,7 +673,8 @@ const LandingPage: React.FC = () => {
                                   aria-controls="collapseThree"
                                 >
                                   <h4>
-                                    How does Achillex AI Academy's pricing work?
+                                    What kind of subscriptions does Achillex AI
+                                    Academy offer?
                                   </h4>
                                 </a>
                               </div>
@@ -661,9 +685,13 @@ const LandingPage: React.FC = () => {
                               >
                                 <div className="card-body visible">
                                   <p className="text-size-18 text-left mb-0 ">
-                                    Our subscriptions are tiered. Understanding
-                                    the task at hand and ironing out the
-                                    wrinkles is key.
+                                    We provide flexible subscription plans,
+                                    including monthly, quarterly, and annual
+                                    options. Subscribers gain unlimited access
+                                    to all course materials, updates, and
+                                    exclusive content like AI tutors and
+                                    advanced AI tools as our exclusive one of a
+                                    kind Voice Based AI tutor.
                                   </p>
                                 </div>
                               </div>
@@ -678,7 +706,10 @@ const LandingPage: React.FC = () => {
                                   aria-expanded="false"
                                   aria-controls="collapseFour"
                                 >
-                                  <h4>How secure is Achillex AI Academy?</h4>
+                                  <h4>
+                                    How Do AI Tutors Work at Achillex AI
+                                    Academy?
+                                  </h4>
                                 </a>
                               </div>
                               <div
@@ -688,10 +719,36 @@ const LandingPage: React.FC = () => {
                               >
                                 <div className="card-body visible">
                                   <p className="text-size-18 text-left mb-0">
-                                    Protecting the data you trust to Achillex AI
-                                    Academy is our first priority. This part is
-                                    really crucial in keeping the project in
-                                    line to completion.
+                                    At Achillex AI Academy, our AI tutors
+                                    revolutionize the learning experience by
+                                    providing personalized, interactive, and
+                                    real-time guidance. These AI-powered virtual
+                                    tutors are designed to help learners
+                                    progress efficiently and effectively in
+                                    their AI education.
+                                    <br />
+                                    Key features of our AI tutors include:
+                                    <br />
+                                    1.Personalized Learning Paths: Tailor your
+                                    curriculum based on your skill level,
+                                    learning pace, and career goals.
+                                    <br />
+                                    2. 24/7 Assistance: Get instant answers to
+                                    your questions, practice problem-solving,
+                                    and receive feedback on your projects
+                                    anytime.
+                                    <br />
+                                    3. Interactive Sessions: Engage in simulated
+                                    discussions, coding challenges, and
+                                    scenario-based learning with AI tutors.
+                                    <br />
+                                    4. Performance Tracking: Receive detailed
+                                    insights into your progress, strengths, and
+                                    areas for improvement.
+                                    <br />
+                                    Achillex AI Academy’s AI tutors are built
+                                    using state-of-the-art AI models, ensuring a
+                                    seamless and enriching learning experience.
                                   </p>
                                 </div>
                               </div>
@@ -706,7 +763,10 @@ const LandingPage: React.FC = () => {
                                   aria-expanded="false"
                                   aria-controls="collapseFive"
                                 >
-                                  <h4>Upgrade subscription type?</h4>
+                                  <h4>
+                                    Does Achillex AI Academy Cater to All Age
+                                    Groups?
+                                  </h4>
                                 </a>
                               </div>
                               <div
@@ -716,11 +776,81 @@ const LandingPage: React.FC = () => {
                               >
                                 <div className="card-body visible">
                                   <p className="text-size-18 text-left mb-0">
-                                    There may be times when you need to upgrade
-                                    your subscription from the original type you
-                                    purchased and we have a solution that
-                                    ensures you can upgrade your subscription
-                                    purchase.
+                                    Yes! Achillex AI Academy is designed to
+                                    cater to learners of all age groups. Whether
+                                    you&#39;re a curious child exploring the
+                                    basics of AI, a college student diving
+                                    deeper into machine learning, or a
+                                    professional seeking to upskill, our courses
+                                    are tailored to your needs.
+                                    <br />
+                                    We offer:
+                                    <br />
+                                    1. Kid-Friendly Programs: Simplified, fun,
+                                    and interactive courses to introduce
+                                    children to AI concepts.
+                                    <br />
+                                    2. Student-Focused Learning: Comprehensive
+                                    modules for school and college students to
+                                    build strong foundations in AI.
+                                    <br />
+                                    3. Professional Development Tracks: Advanced
+                                    courses for working professionals and
+                                    researchers to enhance their expertise.
+                                    <br />
+                                    Our platform ensures everyone, regardless of
+                                    age, can explore and excel in the world of
+                                    AI!
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="accordion-card faq-mb">
+                              <div className="card-header" id="headingSix">
+                                <a
+                                  href="#"
+                                  className="btn btn-link collapsed"
+                                  data-toggle="collapse"
+                                  data-target="#collapseSix"
+                                  aria-expanded="false"
+                                  aria-controls="collapseSix"
+                                >
+                                  <h4>
+                                    Can I Create Custom AI Tutors for Specific
+                                    Topics?
+                                  </h4>
+                                </a>
+                              </div>
+                              <div
+                                id="collapseSix"
+                                className="collapse"
+                                aria-labelledby="headingSix"
+                              >
+                                <div className="card-body visible">
+                                  <p className="text-size-18 text-left mb-0">
+                                    Absolutely! Achillex AI Academy not only
+                                    offers prebuilt AI tutors tailored for
+                                    various age groups but also empowers
+                                    students, parents, and educators to create
+                                    custom AI tutors for any topic.
+                                    <br />
+                                    With our user-friendly tools, you can:
+                                    <br />
+                                    1. Design AI tutors that focus on specific
+                                    subjects or areas of interest.
+                                    <br />
+                                    2. Customize the teaching style, difficulty
+                                    level, and content to suit individual
+                                    learning needs.
+                                    <br />
+                                    3. Develop unique learning paths for
+                                    specialized or niche topics not covered by
+                                    prebuilt tutors.
+                                    <br />
+                                    This feature ensures a personalized learning
+                                    experience, enabling you to address unique
+                                    educational goals and challenges
+                                    effectively.
                                   </p>
                                 </div>
                               </div>

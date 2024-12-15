@@ -9,7 +9,7 @@ export default function AuthLayout({
   return (
     <>
       <div>
-        <NextTopLoader color="#f10353" height={5} showSpinner={false} />
+        <NextTopLoader color="#29a8bf" height={5} showSpinner={false} />
         {children}
       </div>
     </>

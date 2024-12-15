@@ -27,7 +27,7 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#920c35",
+          DEFAULT: "#238b9e",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -88,9 +88,9 @@ const config = {
       ) => void;
     }) {
       const newUtilities = {
-        ".greenscale": {
+        ".cyanscale": {
           filter:
-            "grayscale(100%) sepia(100%) brightness(75%) saturate(300%) hue-rotate(60deg)",
+            "grayscale(100%) sepia(100%) brightness(75%) saturate(300%) hue-rotate(180deg)",
         },
       };
       addUtilities(newUtilities, ["responsive", "hover"]);

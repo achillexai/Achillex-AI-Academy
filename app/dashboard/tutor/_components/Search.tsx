@@ -38,7 +38,7 @@ function SearchBar() {
 
   return (
     <div
-      className="p-10 bg-gradient-to-br from-red-500 via-red-700 to-zinc-900
+      className="p-10 bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900
     flex flex-col justify-center items-center text-white
     "
     >

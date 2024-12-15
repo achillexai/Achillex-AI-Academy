@@ -30,7 +30,7 @@ export const Tutors = ({
     return (
       <div className="pt-10 flex flex-col items-center justify-center space-y-3">
         <div className="relative w-64 h-64">
-          <Image fill className="greenscale" src="/empty.png" alt="Empty" />
+          <Image fill className="cyanscale" src="/empty.png" alt="Empty" />
         </div>
         <p className="text-base text-muted-foreground">No tutors found.</p>
       </div>

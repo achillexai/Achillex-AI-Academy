@@ -21,7 +21,7 @@ const Contact = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-7 col-md-6 col-sm-12 col-12">
-                <div className="banner_content" data-aos="fade-right">
+                <div className="banner_content">
                   <h1 className="text-white">Contact Us</h1>
                   <p className="text-white">
                     Feel free to reach out to us with any questions or concerns.
@@ -61,7 +61,7 @@ const Contact = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-              <div className="contact_content" data-aos="fade-right">
+              <div className="contact_content">
                 <h5>Our Details</h5>
                 <h2>Contact Information</h2>
                 <div className="contact-box">

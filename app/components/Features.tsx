@@ -21,7 +21,7 @@ const Features = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-7 col-md-6 col-sm-12 col-12">
-                <div className="banner_content" data-aos="fade-right">
+                <div className="banner_content">
                   <h1 className="text-white">Our Features</h1>
                   <p className="text-white">
                     Discover our cutting-edge features designed to enhance your
@@ -69,7 +69,7 @@ const Features = () => {
           </figure>
           <div className="row">
             <div className="col-12">
-              <div className="provide_content" data-aos="fade-right">
+              <div className="provide_content">
                 <h5>Services we provide</h5>
                 <h2>
                   Our Purpose is To Deliver Excellence in Service and Execution

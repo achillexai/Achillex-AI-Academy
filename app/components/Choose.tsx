@@ -18,7 +18,7 @@ const Choose = () => {
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 order-1">
-              <div className="choose_content" data-aos="fade-right">
+              <div className="choose_content">
                 <h5>Why Choose Us</h5>
                 <h2 className="text-white">
                   Experience the Future of Learning with AI Innovations

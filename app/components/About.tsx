@@ -20,7 +20,7 @@ const About = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-7 col-md-6 col-sm-12 col-12">
-                <div className="banner_content" data-aos="fade-right">
+                <div className="banner_content">
                   <h1 className="text-white">About Us</h1>
                   <p className="text-white">
                     We are a dedicated team committed to providing exceptional
@@ -84,7 +84,7 @@ const About = () => {
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-              <div className="aboutpage_content" data-aos="fade-right">
+              <div className="aboutpage_content">
                 <h5>About us</h5>
                 <h2>Empowering People By Keeping Them Well</h2>
                 <p className="text-size-18">
@@ -199,7 +199,7 @@ const About = () => {
         </div>
       </section>
       {/* <!-- Info video --> */}
-      <div className="videosection mb-10" data-aos="fade-up">
+      <div className="videosection mb-10">
         <div className="container">
           <div className="row position-relative">
             <div className="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -220,8 +220,8 @@ const About = () => {
         </div>
       </div>
 
+      {/* Footer Section */}
       <section className="mb-[-50px]">
-        {/* Footer Section */}
         <Footer />
       </section>
     </>

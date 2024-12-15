@@ -24,7 +24,7 @@ function DashboardLayout({
         value={{ updateCreditUsage, setUpdateCreditUsage }}
       >
         <div className="bg-slate-100 h-screen flex overflow-hidden relative">
-          <NextTopLoader color="#f10353" height={5} showSpinner={false} />
+          <NextTopLoader color="#1d8098" height={5} showSpinner={false} />
 
           {/* Desktop Sidebar */}
           <div className="w-64 flex-shrink-0 hidden lg:block relative">

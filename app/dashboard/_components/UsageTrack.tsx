@@ -139,7 +139,7 @@ function UsageTrack() {
     <div className="">
       <div className="bg-primary p-3 text-white rounded-lg">
         <h2 className="font-medium">Usage</h2>
-        <div className="h-2 bg-[#ff7e7e] w-full rounded-full mt-3">
+        <div className="h-2 bg-[#69b1be] w-full rounded-full mt-3">
           <div
             className="h-2 bg-white rounded-full transition-all duration-300"
             style={{
@@ -150,7 +150,7 @@ function UsageTrack() {
         <h2 className="text-sm my-2">
           {totalUsage}/{plan === "monthly" ? "Unlimited" : credits} credits used
         </h2>
-        <div className="h-2 bg-[#ff7e7e] w-full rounded-full mt-3">
+        <div className="h-2 bg-[#69b1be] w-full rounded-full mt-3">
           <div
             className="h-2 bg-white rounded-full transition-all duration-300"
             style={{

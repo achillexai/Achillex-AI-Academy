@@ -1,13 +1,12 @@
 import React from "react";
 import Features from "../components/Features";
-import Layout from "./layout";
-import "./page.css";
+import LandingLayout from "../(landing)/landing-layout";
 
 const page = () => {
   return (
-    <Layout>
+    <LandingLayout>
       <Features />
-    </Layout>
+    </LandingLayout>
   );
 };
 
