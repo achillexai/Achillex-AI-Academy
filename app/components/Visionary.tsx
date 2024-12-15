@@ -109,7 +109,7 @@ const Visionary = () => {
               <div className="team-box">
                 <figure>
                   <img
-                    src="./assets/images/team-image1.png"
+                    src="./assets/images/team-image1.jpg"
                     alt=""
                     className="img-fluid"
                   />
@@ -119,18 +119,18 @@ const Visionary = () => {
                   <span className="text-size-16">Visionary</span>
                   <ul className="list-unstyled mb-0">
                     <li className="icons">
-                      <a href="#">
-                        <i className="fa-brands fa-facebook-f"></i>
+                      <a href="https://timesofindia.indiatimes.com/city/mumbai/ais-role-in-defense-and-public-safety-expert-explains/articleshow/111689043.cms?fbclid=IwY2xjawHGRHdleHRuA2FlbQIxMQABHQykRJAn8qMOkMTZbt5ZiBSXdCc53EBxZP4JY4xDp6XfzNKeURsxhn7t8g_aem_IAiVhlgKGTZEAzJsUqC8Rg">
+                        <i className="fa-solid fa-link"></i>
                       </a>
                     </li>
                     <li className="icons">
-                      <a href="#">
-                        <i className="fa-brands fa-twitter"></i>
+                      <a href="https://www.freepressjournal.in/business/revolutionizing-ai-security-mr-sai-kirans-vision-with-aira-intelligence?fbclid=IwY2xjawHGRKRleHRuA2FlbQIxMQABHf568ocOV0k6l1evSPvR1H98o2AkXN90IhM9BiV8wSshEl8k4voyV1mLUA_aem_pnX5MLhny_h9LiFlDJmUuA">
+                        <i className="fa-solid fa-book"></i>
                       </a>
                     </li>
                     <li className="icons">
-                      <a href="#">
-                        <i className="fa-brands fa-instagram"></i>
+                      <a href="/assets/images/certificate.jpg">
+                        <i className="fa-solid fa-certificate"></i>
                       </a>
                     </li>
                   </ul>
