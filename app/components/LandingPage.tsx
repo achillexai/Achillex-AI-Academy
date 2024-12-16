@@ -431,7 +431,7 @@ const LandingPage: React.FC = () => {
                     solutions for interactive and immersive education.
                   </li>
                   <li className="text-white text text1 text-size-18">
-                    <i className="circle fa-regular fa-angle-right"></i>Dolor
+                    <i className="circle fa-regular fa-angle-right"></i>
                     Real-Time Performance Analytics: Gain actionable insights to
                     track progress and improve outcomes effortlessly.
                   </li>
