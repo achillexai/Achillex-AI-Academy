@@ -24,13 +24,15 @@ const About = () => {
                 <div className="banner_content">
                   <h1 className="text-white">About Us</h1>
                   <p className="text-white">
-                    We are a dedicated team committed to providing exceptional
-                    services and products to our clients. Our mission is to
-                    empower individuals and organizations by delivering
-                    innovative and effective strategies that drive success and
-                    growth. With a focus on quality and customer satisfaction,
-                    we strive to exceed expectations and build long-lasting
-                    relationships.
+                    At Achillex AI Academy, we are a forward-thinking team
+                    dedicated to revolutionizing education through AI
+                    innovation. Our mission is to empower learners and educators
+                    by delivering cutting-edge tools, personalized learning
+                    solutions, and transformative experiences. Committed to
+                    excellence and growth, we strive to inspire a future where
+                    education is accessible, interactive, and driven by
+                    technological advancements. Together, we aim to create
+                    lasting impacts in the world of learning.
                   </p>
                   <div className="box">
                     <span className="mb-0">Home</span>

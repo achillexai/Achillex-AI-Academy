@@ -25,7 +25,7 @@ const Footer = () => {
                     <Image src="/logo.png" alt="" width={150} height={50} />
                   </figure>
                 </Link>
-                <p className="text-size-16 footer-text text-white">
+                <p className="text-size-16 footer-text text-white text-left">
                   Empowering the future with cutting-edge AI solutions. We
                   specialize in transforming education, security, and innovation
                   through artificial intelligence.
@@ -51,7 +51,7 @@ const Footer = () => {
 
               {/* Useful Links Section - Right */}
               <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                <div className="links">
+                <div className="links text-justify">
                   <h4 className="heading text-white">Useful Links</h4>
                   <ul className="list-unstyled mb-0">
                     <li>
@@ -128,9 +128,9 @@ const Footer = () => {
                     </li>
                     <li className="text">
                       <i className="fa-solid fa-location-dot footer-location footer-location3"></i>
-                      <p className="text-size-16">
-                        No 139, Indrani Nilayam, 2nd Floor, 4th Cross, 4th Main,
-                        BEML Layout Thubarahalli, Bangalore, 560066
+                      <p className="text-size-16 text-justify">
+                        No. 139, Indrani Nilayam, 2nd Floor, 4th Cross, 4th
+                        Main, BEML Layout Thubarahalli, Bangalore, 560066
                       </p>
                     </li>
                   </ul>
