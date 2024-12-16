@@ -38,7 +38,7 @@ const Choose = () => {
                     Cutting-Edge AI Tools
                   </li>
                   <li className="text-white text text1 text-size-18">
-                    <i className="circle fa-regular fa-angle-right"></i>Dolor
+                    <i className="circle fa-regular fa-angle-right"></i>
                     Data-Driven Progress Insights
                   </li>
                 </ul>

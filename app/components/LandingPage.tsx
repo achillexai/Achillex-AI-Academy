@@ -179,10 +179,18 @@ const LandingPage: React.FC = () => {
                 <h5>About us</h5>
                 <h2>Empowering Learners Through Innovation</h2>
                 <p className="text-size-18">
-                  At Achillex AI Academy, we believe in transforming education
-                  by empowering individuals with cutting-edge AI-driven learning
-                  tools. Our mission is to make advanced knowledge accessible,
-                  personalized, and impactful for learners of all ages.
+                  Welcome to Achillex AI Academy, the future of education
+                  powered by advanced artificial intelligence. Our mission is to
+                  make learning smarter, personalized, and accessible for
+                  everyone—students, parents, and educators alike. In today’s
+                  fast-paced world, traditional education often struggles to
+                  meet individual needs. That’s where Achillex AI Academy steps
+                  in. Our platform combines cutting-edge AI technology with
+                  innovative teaching methods to create an environment where
+                  learning is tailored, engaging, and effective. Experience the
+                  power of AI to transform learning and teaching. Inclusive and
+                  Accessible: Designed for students of all ages, educators of
+                  all levels, and parents who want the best for their children.
                 </p>
                 <div className="about-lowercontent">
                   <div className="image">
@@ -217,10 +225,7 @@ const LandingPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <a
-                  className="read_more text-decoration-none"
-                  href="./about.html"
-                >
+                <a className="read_more text-decoration-none" href="./about">
                   Read More<i className="circle fa-regular fa-angle-right"></i>
                 </a>
               </div>
@@ -388,8 +393,64 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </section>
+
       {/* Why Choose Us Section */}
-      <Choose />
+      <section className="choose-section relative overflow-hidden">
+        <div className="container">
+          <figure className="choose-sideshape mb-0">
+            <img src="/assets/images/choose-sideshape.png" alt="" />
+          </figure>
+          <div className="row">
+            <div className="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1 order-2">
+              <div className="choose_wrapper mt-20">
+                <figure className="mb-0 choose-image">
+                  <img src="/assets/images/choose-image.png" alt="" />
+                </figure>
+              </div>
+            </div>
+            <div className="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 order-1">
+              <div className="choose_content">
+                <h5>Why Choose Us</h5>
+                <h2 className="text-white">
+                  Empowering Learning with AI Excellence
+                </h2>
+                <p className="text-white text-size-18">
+                  At Achillex AI Academy, we redefine education by combining the
+                  power of AI with innovative teaching methods, equipping
+                  learners to excel in a rapidly evolving world.
+                </p>
+                <ul className="list-unstyled mb-0">
+                  <li className="text-white text text-size-18">
+                    <i className="circle fa-regular fa-angle-right"></i>
+                    Tailored Learning Journeys: Customized AI-driven pathways
+                    designed to suit individual learning styles and goals.
+                  </li>
+                  <li className="text-white text text-size-18">
+                    <i className="circle fa-regular fa-angle-right"></i>
+                    Innovative AI-Powered Tools: Access state-of-the-art AI
+                    solutions for interactive and immersive education.
+                  </li>
+                  <li className="text-white text text1 text-size-18">
+                    <i className="circle fa-regular fa-angle-right"></i>Dolor
+                    Real-Time Performance Analytics: Gain actionable insights to
+                    track progress and improve outcomes effortlessly.
+                  </li>
+                </ul>
+                <Link
+                  href="/dashboard"
+                  className="read_more text-decoration-none"
+                >
+                  Get Started
+                  <i className="circle fa-regular fa-angle-right"></i>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figure className="choose-sideshape2 mb-0">
+          <img src="/assets/images/choose-sideshape2.png" alt="" />
+        </figure>
+      </section>
 
       {/* Subscription Section */}
       <Subscriptions />

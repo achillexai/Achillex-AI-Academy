@@ -87,13 +87,16 @@ const About = () => {
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
               <div className="aboutpage_content">
                 <h5>About us</h5>
-                <h2>Empowering People By Keeping Them Well</h2>
+                <h2>Transforming Education Through AI Innovation</h2>
                 <p className="text-size-18">
-                  At Achillex AI Academy, we believe in transforming education
-                  by empowering individuals with cutting- edge AI-driven
-                  learning tools. Our mission is to make advanced knowledge
-                  accessible, personalized, and impactful for learners of all
-                  ages.
+                  At Achillex AI Academy, we are passionate about transforming
+                  education through innovation and technology. Our mission is to
+                  empower learners and educators by delivering cutting-edge
+                  AI-driven solutions that inspire growth and excellence. With a
+                  commitment to quality and personalized learning, we aim to
+                  exceed expectations, foster curiosity, and create meaningful,
+                  long-lasting impacts in the world of education. Together,
+                  we’re shaping the future of learning.
                 </p>
                 <ul className="list-unstyled mb-0">
                   <li className="text text-size-18">

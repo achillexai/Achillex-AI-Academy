@@ -25,7 +25,7 @@ const Features = () => {
                   <h1 className="text-white">Our Features</h1>
                   <p className="text-white">
                     Discover our cutting-edge features designed to enhance your
-                    experience and drive innovation.
+                    learning experience and drive innovation.
                   </p>
                   <div className="box">
                     <span className="mb-0">Home</span>
@@ -72,7 +72,8 @@ const Features = () => {
               <div className="provide_content">
                 <h5>Services we provide</h5>
                 <h2>
-                  Our Purpose is To Deliver Excellence in Service and Execution
+                  Our Mission: Empowering Education with Excellence and
+                  Innovation
                 </h2>
               </div>
             </div>
@@ -82,7 +83,14 @@ const Features = () => {
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="service-box box-mb">
                   <div className="box-image">
-                    <figure className="service-reboticon">
+                    <figure
+                      className="service-reboticon"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
                       <img
                         src="./assets/images/service-reboticon.png"
                         alt=""
@@ -108,7 +116,14 @@ const Features = () => {
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="service-box box-mb">
                   <div className="box-image">
-                    <figure className="service-learningicon">
+                    <figure
+                      className="service-learningicon"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
                       <img
                         src="./assets/images/service-learningicon.png"
                         alt=""
@@ -136,7 +151,14 @@ const Features = () => {
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="service-box">
                   <div className="box-image">
-                    <figure className="service-scienceicon">
+                    <figure
+                      className="service-scienceicon"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
                       <img
                         src="./assets/images/service-scienceicon.png"
                         alt=""
@@ -162,7 +184,14 @@ const Features = () => {
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="service-box">
                   <div className="box-image">
-                    <figure className="service-analysicon">
+                    <figure
+                      className="service-analysicon"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
                       <img
                         src="./assets/images/service-analysicon.png"
                         alt=""
@@ -190,7 +219,14 @@ const Features = () => {
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="service-box">
                   <div className="box-image">
-                    <figure className="service-technologyicon">
+                    <figure
+                      className="service-technologyicon"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
                       <img
                         src="./assets/images/service-technologyicon.png"
                         alt=""
@@ -216,7 +252,14 @@ const Features = () => {
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="service-box">
                   <div className="box-image">
-                    <figure className="service-metalicon">
+                    <figure
+                      className="service-metalicon"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
                       <img
                         src="./assets/images/service-metalicon.png"
                         alt=""

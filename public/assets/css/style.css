@@ -1007,7 +1007,7 @@ p {
   width: 100%;
   border-radius: 25px;
   margin-bottom: 16px;
-  padding: 0 20px;
+  padding: 0 50px;
   margin-left: 10px;
 }
 .faq-section .accordian-inner p {
@@ -1023,7 +1023,7 @@ p {
 }
 .faq-section .accordian-inner .card-body {
   padding: 0px 18px 38px;
-  margin: 0 -18px;
+  margin: 0 -48px;
   border-bottom: 2px solid #249cb3;
   border-radius: 15px;
 }
@@ -1082,6 +1082,7 @@ p {
   color: var(--e-global-color-white);
   font-size: 18px;
   border-radius: 100px;
+  right: -40px;
 }
 .faq-section .accordion-card .collapsed:before {
   content: "\2b";
@@ -1096,6 +1097,7 @@ p {
   color: var(--e-global-color-white);
   border-radius: 100px;
   text-align: center;
+  right: -40px;
 }
 .faq-section .faq_content a {
   font-size: 18px;
@@ -1696,7 +1698,7 @@ p {
   width: 100%;
   border-radius: 15px;
   margin-bottom: 16px;
-  padding: 0 20px;
+  padding: 0 50px;
 }
 .accordian-section .accordian-inner .card-header {
   padding: 0;
