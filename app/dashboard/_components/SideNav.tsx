@@ -102,13 +102,8 @@ function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
   const renderSidebarContent = (isMobile?: boolean) => (
     <div className="flex flex-col h-full">
       {/* Logo section */}
-      <div className="flex justify-center items-center mt-[-20px]">
-        <Image
-          src="/assets/images/logo-black.png"
-          alt="logo"
-          width={120}
-          height={120}
-        />
+      <div className="flex justify-center items-center ">
+        <Image src="/logo-black.png" alt="logo" width={100} height={100} />
         {isMobile && (
           <button
             onClick={toggleSidebar}

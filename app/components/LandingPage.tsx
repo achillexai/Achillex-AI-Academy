@@ -6,7 +6,6 @@ import Head from "next/head";
 import Script from "next/script";
 import Header from "./Header";
 import Footer from "./Footer";
-import Choose from "./Choose";
 import Subscriptions from "./Subscriptions";
 
 declare global {
