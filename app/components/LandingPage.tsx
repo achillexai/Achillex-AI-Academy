@@ -174,7 +174,7 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-              <div className="about_content" data-aos="fade-right">
+              <div className="about_content">
                 <h5>About us</h5>
                 <h2>Empowering Learners Through Innovation</h2>
                 <p className="text-size-18">
@@ -245,7 +245,7 @@ const LandingPage: React.FC = () => {
           </figure>
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-              <div className="service_content" data-aos="fade-right">
+              <div className="service_content" >
                 <h5>Features we provide</h5>
                 <h2>Our Purpose is To Deliver Excellence in Everything</h2>
                 <Link
@@ -606,7 +606,7 @@ const LandingPage: React.FC = () => {
         {/* <!-- Partner --> */}
         <div className="partner-section">
           <div className="container">
-            <div className="partner" data-aos="fade-up">
+            <div className="partner">
               <ul className="mb-0 list-unstyled">
                 <li>
                   <figure className="mb-0 partner1 img1">
@@ -664,7 +664,7 @@ const LandingPage: React.FC = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-              <div className="faq_content" data-aos="fade-right">
+              <div className="faq_content" >
                 <h5>faq's</h5>
                 <h2>Frequently Asked Questions</h2>
                 <div className="faq">
