@@ -66,14 +66,54 @@ const Visionary = () => {
               </div>
               <div className="col-lg-5 col-md-6 col-sm-12 col-12">
                 <div className="banner_wrapper">
-                  <figure className="mb-0 sub-bannerimage">
+                  <figure className="mb-8 md:mb-20 lg:mb-40 sub-bannerimage">
                     <img
                       src="./assets/images/sub-bannerimage.png"
                       alt=""
-                      className=""
+                      className="h-52"
                     />
                   </figure>
                 </div>
+
+                {/* Visionary Box */}
+                <section className="sm:mt-20 xl:mt-16 team-section bg-transparent">
+                  <div className="container">
+                    <div className="row d-flex justify-content-center">
+                      <div className="">
+                        <div className="team-box">
+                          <figure>
+                            <img
+                              src="./assets/images/team-image1.jpg"
+                              alt=""
+                              className="img-fluid"
+                            />
+                          </figure>
+                          <div className="content">
+                            <h4>Sai Kiran CS</h4>
+                            <span className="text-size-16">Visionary</span>
+                            <ul className="list-unstyled mb-0">
+                              <li className="icons">
+                                <a href="https://timesofindia.indiatimes.com/city/mumbai/ais-role-in-defense-and-public-safety-expert-explains/articleshow/111689043.cms?fbclid=IwY2xjawHGRHdleHRuA2FlbQIxMQABHQykRJAn8qMOkMTZbt5ZiBSXdCc53EBxZP4JY4xDp6XfzNKeURsxhn7t8g_aem_IAiVhlgKGTZEAzJsUqC8Rg">
+                                  <i className="fa-solid fa-link"></i>
+                                </a>
+                              </li>
+                              <li className="icons">
+                                <a href="https://www.freepressjournal.in/business/revolutionizing-ai-security-mr-sai-kirans-vision-with-aira-intelligence?fbclid=IwY2xjawHGRKRleHRuA2FlbQIxMQABHf568ocOV0k6l1evSPvR1H98o2AkXN90IhM9BiV8wSshEl8k4voyV1mLUA_aem_pnX5MLhny_h9LiFlDJmUuA">
+                                  <i className="fa-solid fa-book"></i>
+                                </a>
+                              </li>
+                              <li className="icons">
+                                <a href="/assets/images/certificate.jpg">
+                                  <i className="fa-solid fa-certificate"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
           </div>
@@ -86,60 +126,8 @@ const Visionary = () => {
           </figure>
         </section>
       </div>
-      {/* <!-- Member --> */}
-      <section className="team-section">
-        <div className="container">
-          <figure className="team-sideimage mb-0">
-            <img
-              src="./assets/images/team-sideimage.png"
-              className="img-fluid"
-              alt=""
-            />
-          </figure>
-          <div className="row">
-            <div className="col-12">
-              <div className="team_content">
-                <h5>Our Visionary</h5>
-                <h2>Meet The Visionary</h2>
-              </div>
-            </div>
-          </div>
-          <div className="row d-flex justify-content-center">
-            <div className="col-lg-4 col-md-4 col-sm-12 col-12">
-              <div className="team-box">
-                <figure>
-                  <img
-                    src="./assets/images/team-image1.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </figure>
-                <div className="content">
-                  <h4>Sai Kiran CS</h4>
-                  <span className="text-size-16">Visionary</span>
-                  <ul className="list-unstyled mb-0">
-                    <li className="icons">
-                      <a href="https://timesofindia.indiatimes.com/city/mumbai/ais-role-in-defense-and-public-safety-expert-explains/articleshow/111689043.cms?fbclid=IwY2xjawHGRHdleHRuA2FlbQIxMQABHQykRJAn8qMOkMTZbt5ZiBSXdCc53EBxZP4JY4xDp6XfzNKeURsxhn7t8g_aem_IAiVhlgKGTZEAzJsUqC8Rg">
-                        <i className="fa-solid fa-link"></i>
-                      </a>
-                    </li>
-                    <li className="icons">
-                      <a href="https://www.freepressjournal.in/business/revolutionizing-ai-security-mr-sai-kirans-vision-with-aira-intelligence?fbclid=IwY2xjawHGRKRleHRuA2FlbQIxMQABHf568ocOV0k6l1evSPvR1H98o2AkXN90IhM9BiV8wSshEl8k4voyV1mLUA_aem_pnX5MLhny_h9LiFlDJmUuA">
-                        <i className="fa-solid fa-book"></i>
-                      </a>
-                    </li>
-                    <li className="icons">
-                      <a href="/assets/images/certificate.jpg">
-                        <i className="fa-solid fa-certificate"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
+      {/* Footer Section */}
       <Footer />
     </>
   );
