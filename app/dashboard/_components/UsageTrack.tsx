@@ -129,7 +129,7 @@ function UsageTrack() {
 
   if (isLoading) {
     return (
-      <div className="bg-primary p-3 text-white rounded-lg">
+      <div className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 p-3 text-white rounded-lg">
         Loading usage data...
       </div>
     );
@@ -137,7 +137,7 @@ function UsageTrack() {
 
   return (
     <div className="">
-      <div className="bg-primary p-3 text-white rounded-lg">
+      <div className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 p-3 text-white rounded-lg">
         <h2 className="font-medium">Usage</h2>
         <div className="h-2 bg-[#69b1be] w-full rounded-full mt-3">
           <div

@@ -68,7 +68,7 @@ function Header({ isOpen, toggleSidebar }: HeaderProps) {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 items-start sm:items-center w-full sm:w-auto">
-          <h2 className="bg-primary p-1 rounded-full text-xs lg:text-sm text-white px-2 whitespace-normal sm:whitespace-nowrap text-center w-full sm:w-auto">
+          <h2 className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 p-1 rounded-full text-xs lg:text-sm text-white px-2 whitespace-normal sm:whitespace-nowrap text-center w-full sm:w-auto">
             🔔 Get your subscription just for $9.99/Month
           </h2>
           {/* Show on tablet, hide on mobile and large desktop */}

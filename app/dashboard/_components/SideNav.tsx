@@ -7,6 +7,7 @@ import {
   MessageSquare,
   Plus,
   PanelLeftClose,
+  AudioLines,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
@@ -37,6 +38,11 @@ function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
           name: "AI Tutor",
           icon: MessageSquare,
           path: "/dashboard/tutor",
+        },
+        {
+          name: "AI Voice Agent",
+          icon: AudioLines,
+          path: "/dashboard/agent",
         },
         {
           name: "History",
@@ -119,8 +125,8 @@ function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
       {/* Menu sections */}
       <div className="flex-1">
         {MenuList.map((section) => (
-          <div key={uuidv4()} className="mb-4">
-            <h3 className="text-xs font-medium tracking-wide text-gray-500 mb-3">
+          <div key={uuidv4()} className="mb-1">
+            <h3 className="text-xs font-medium tracking-wide text-gray-500 mb-1 mt-1">
               {section.section}
             </h3>
             {section.items.map((menu) => (
@@ -131,12 +137,16 @@ function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
                 className="block"
               >
                 <div
-                  className={`flex gap-2 mb-3 p-2 hover:bg-primary hover:text-white
+                  className={`flex gap-2 mb-3 p-2 hover:bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 hover:text-white
                     rounded-lg cursor-pointer items-center transition-all hover-parent
-                    ${path === menu.path ? "bg-primary text-white" : ""}`}
+                    ${
+                      path === menu.path
+                        ? "bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 text-white"
+                        : ""
+                    }`}
                 >
                   <menu.icon className="h-5 w-5 icon-bounce" />
-                  <h2 className="text-lg">{menu.name}</h2>
+                  <h2 className="text-base">{menu.name}</h2>
                 </div>
               </Link>
             ))}
@@ -145,9 +155,9 @@ function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
       </div>
 
       {/* Footer section */}
-      <div className="mt-auto pt-4">
+      <div className="pt-2">
         <UsageTrack />
-        <hr className="my-3 border" />
+        <hr className="my-2 border" />
         <p className="text-xs text-center text-gray-500">
           © {new Date().getFullYear()} Achillex AI Academy Inc.
         </p>

@@ -50,7 +50,7 @@ export const Tutors = ({
               <div className="absolute -top-2 -right-2 z-10">
                 <Badge
                   variant="secondary"
-                  className="bg-primary text-white hover:text-black hover:border-black hover:border whitespace-nowrap text-[10px] sm:text-xs px-1 sm:px-2"
+                  className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 text-white hover:text-black hover:border-black hover:border whitespace-nowrap text-[10px] sm:text-xs px-1 sm:px-2"
                 >
                   <AlertCircle className="w-2 h-2 sm:w-3 sm:h-3 mr-1" />
                   {item.hasUsedPrompt ? "Upgrade Required" : "1 Free Chat"}

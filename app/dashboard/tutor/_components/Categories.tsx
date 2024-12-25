@@ -55,7 +55,9 @@ export const Categories = ({ data }: CategoriesProps) => {
             border
             whitespace-nowrap
             `,
-            !categoryId ? "bg-primary" : "bg-white text-black"
+            !categoryId
+              ? "bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900"
+              : "bg-white text-black"
           )}
         >
           Newest
@@ -84,7 +86,9 @@ export const Categories = ({ data }: CategoriesProps) => {
               border
               whitespace-nowrap
               `,
-              item.id === categoryId ? "bg-primary" : "bg-white text-black"
+              item.id === categoryId
+                ? "bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900"
+                : "bg-white text-black"
             )}
           >
             {item.name}

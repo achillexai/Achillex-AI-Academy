@@ -59,7 +59,11 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
           </div>
         ))}
 
-        <Button type="submit" className="w-full py-6" disabled={loading}>
+        <Button
+          type="submit"
+          className="w-full py-6 bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 hover:bg-gradient-to-tl"
+          disabled={loading}
+        >
           {loading && <Loader2Icon className="animate-spin mr-2" />}
           Generate Content
         </Button>

@@ -7,6 +7,7 @@ const withNextra = nextra({
 });
 
 const nextConfig = {
+  reactStrictMode: true,
   images: {
     domains: [
       "cdn-icons-png.flaticon.com",
@@ -14,7 +15,14 @@ const nextConfig = {
       "res.cloudinary.com",
     ],
   },
-  webpack(config) {
+  webpack: (config, { dev, isServer }) => {
+    // Development mode optimizations
+    if (dev && !isServer) {
+      // Disable state persistence in development
+      config.optimization.runtimeChunk = false;
+      config.optimization.splitChunks = false;
+    }
+
     // Add SVGR support
     config.module.rules.push({
       test: /\.svg$/,
