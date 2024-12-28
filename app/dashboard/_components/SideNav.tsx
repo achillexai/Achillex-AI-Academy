@@ -113,7 +113,7 @@ function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
         {isMobile && (
           <button
             onClick={toggleSidebar}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            className="hover:bg-gray-100 rounded-full transition-colors absolute translate-x-28"
             aria-label="Close sidebar"
           >
             <PanelLeftClose className="h-6 w-6" />
