@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import SideNav from "./_components/SideNav";
 import Header from "./_components/Header";
 import { Toaster } from "@/components/ui/toaster";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
+import { ErrorBoundary } from "react-error-boundary";
 
 function AdminLayout({
   children,
@@ -14,10 +15,26 @@ function AdminLayout({
 }>) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   const isLoginPage = pathname === "/admin/login";
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const res = await fetch("/api/admin/check-auth", {
+        credentials: "include",
+      });
+      if (!res.ok) {
+        router.push("/admin/login");
+      }
+    };
+
+    if (!isLoginPage) {
+      checkAuth();
+    }
+  }, [isLoginPage, router]);
 
   if (isLoginPage) {
     return (
@@ -39,10 +56,14 @@ function AdminLayout({
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden relative">
         <Header isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <main className="flex-1 overflow-y-auto relative">
-          <div className="h-full mx-auto max-w-[1600px]">{children}</div>
-        </main>
-        <Toaster />
+        <ErrorBoundary
+          fallback={<div>Something went wrong. Please try again later.</div>}
+        >
+          <main className="flex-1 overflow-y-auto relative">
+            <div className="h-full mx-auto max-w-[1600px]">{children}</div>
+          </main>
+          <Toaster />
+        </ErrorBoundary>
       </div>
     </div>
   );

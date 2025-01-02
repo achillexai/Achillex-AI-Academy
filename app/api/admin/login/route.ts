@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     cookieStore.set("admin_token", "your_secure_token_here", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "lax", // Change from "strict" to "lax"
       maxAge: 3600, // 1 hour
       path: "/",
     });
