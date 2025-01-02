@@ -5,7 +5,7 @@ import { UserSubscription } from "@/utils/schema";
 import { eq } from "drizzle-orm";
 
 // Define public routes that don't need authentication
-const publicPaths = ["/", "/sign-in*", "/sign-up*", "/api*"];
+const publicPaths = ["/", "/sign-in*", "/sign-up*", "/api*", "/admin/login"];
 
 function isPublic(path: string) {
   return publicPaths.find((x) =>
@@ -19,6 +19,21 @@ export default clerkMiddleware((auth, req, evt) => {
   evt.isSatellite = true;
 
   const path = req.nextUrl.pathname;
+
+  // For admin routes, check admin authentication
+  if (path.startsWith("/admin")) {
+    const authToken = req.cookies.get("admin_token")?.value;
+
+    if (!authToken && !path.startsWith("/admin/login")) {
+      return NextResponse.redirect(new URL("/admin/login", req.url));
+    }
+
+    if (authToken && path === "/admin/login") {
+      return NextResponse.redirect(new URL("/admin", req.url));
+    }
+
+    return NextResponse.next();
+  }
 
   // Allow public routes without any redirects
   if (isPublic(path)) {
@@ -74,9 +89,9 @@ async function manageUserSubscription(userId: string) {
           stripeStatus: "inactive",
           plan: "free",
           credits: 10000,
-          stripeCurrentPeriodEnd: new Date(
-            Date.now() + 30 * 24 * 60 * 60 * 1000
-          ),
+          minutes: 0,
+          stripeCurrentPeriodEnd: null,
+          fullName: "", // Initialize with an empty string
         })
         .execute();
 
@@ -88,5 +103,5 @@ async function manageUserSubscription(userId: string) {
 }
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)", "/admin/:path*"],
 };

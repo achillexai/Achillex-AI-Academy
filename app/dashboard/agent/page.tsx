@@ -16,12 +16,14 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Orb from "./_components/Orb";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 export default function VoiceAssistant() {
   const [voice, setVoice] = useState("verse");
   const [showTranscriber, setShowTranscriber] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pathname = usePathname();
+  const isMobile = useMediaQuery("(max-width: 700px)");
   const {
     status,
     isSessionActive,
@@ -81,16 +83,28 @@ export default function VoiceAssistant() {
   return (
     <div className="flex overflow-hidden">
       <motion.div
-        className="flex-1 flex flex-col items-center justify-between p-8 ml-8"
-        animate={{ x: showTranscriber ? "-30%" : 0 }}
+        className={`flex-1 flex flex-col items-center justify-between ${
+          isMobile ? "p-2" : "p-6"
+        }`}
+        animate={{
+          x: showTranscriber && !isMobile ? "-30%" : 0,
+        }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        <div className="flex-1 flex flex-col items-center justify-center gap-6 max-w-md w-full">
-          <div className="relative w-[300px] h-[300px]">
+        <div
+          className={`flex-1 flex flex-col items-center justify-center max-w-md w-full
+          ${isMobile ? "gap-2" : "gap-4"}
+          `}
+        >
+          <div
+            className={`relative ${
+              isMobile ? "w-[200px] h-[200px]" : "w-[300px] h-[300px]"
+            }`}
+          >
             <canvas
               ref={canvasRef}
-              width={300}
-              height={300}
+              width={isMobile ? 300 : 300}
+              height={isMobile ? 300 : 300}
               className="absolute top-0 left-0 w-full h-full"
             />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
@@ -101,18 +115,32 @@ export default function VoiceAssistant() {
             </div>
           </div>
 
-          <div className="text-center space-y-4">
-            <p className="text-muted-foreground text-sm">
+          <div
+            className={`text-center ${isMobile ? "space-y-1" : "space-y-2"}`}
+          >
+            <p
+              className={`text-muted-foreground ${
+                isMobile ? "text-xs" : "text-sm"
+              }`}
+            >
               What do you want to learn today?
             </p>
-            <p className="text-2xl font-light tracking-wide">
+            <p
+              className={`font-light tracking-wide ${
+                isMobile ? "text-base" : "text-2xl"
+              }`}
+            >
               {isSessionActive ? "Listening..." : "Tap microphone to start"}
             </p>
-            <div className="flex justify-center gap-4 mb-8">
+            <div
+              className={`flex justify-center ${isMobile ? "mb-2" : "mb-6"}`}
+            >
               <button
                 onClick={handleStartStopClick}
                 disabled={status === "Processing..."}
-                className={`w-16 h-16 rounded-full transition-all duration-300 ease-in-out 
+                className={`${
+                  isMobile ? "w-10 h-10" : "w-16 h-16"
+                } rounded-full transition-all duration-300 ease-in-out 
                   flex items-center justify-center cursor-pointer
                   ${
                     !isSessionActive
@@ -122,28 +150,54 @@ export default function VoiceAssistant() {
                 `}
               >
                 {isSessionActive ? (
-                  <Stop className={`w-8 h-8 text-white`} />
+                  <Stop
+                    className={`${isMobile ? "w-6 h-6" : "w-8 h-8"} text-white`}
+                  />
                 ) : (
-                  <Mic className={`w-8 h-8 text-white`} />
+                  <Mic
+                    className={`${isMobile ? "w-5 h-5" : "w-8 h-8"} text-white`}
+                  />
                 )}
               </button>
             </div>
           </div>
         </div>
 
-        <div className="mt-14 w-full max-w-xs">
-          <nav className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 backdrop-blur-sm rounded-3xl p-2 py-4 shadow-lg">
-            <ul className="flex justify-between items-center px-6">
+        <div
+          className={`${
+            isMobile ? "mt-3 max-w-[26vh]" : "mt-10 max-w-xs"
+          } w-full `}
+        >
+          <nav
+            className={`bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 backdrop-blur-sm shadow-sm
+            ${isMobile ? "p-2 py-1 rounded-2xl" : "p-2 py-3  rounded-3xl"}
+            `}
+          >
+            <ul className="flex justify-between items-center px-4">
               <li>
-                <button className="p-2 rounded-full transition-all duration-200 bg-white bg-opacity-20 shadow-inner">
-                  <Home className="w-6 h-6 text-white" />
+                <button
+                  className={`p-2 rounded-full transition-all duration-200 bg-white bg-opacity-20 shadow-inner ${
+                    isMobile ? "scale-75" : ""
+                  }`}
+                >
+                  <Home
+                    className={`${isMobile ? "w-5 h-5" : "w-6 h-6"} text-white`}
+                  />
                 </button>
               </li>
               <li>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button className="p-2 rounded-full transition-all duration-200 hover:bg-white hover:bg-opacity-10">
-                      <Layers className="w-6 h-6 text-white" />
+                    <button
+                      className={`p-2 rounded-full transition-all duration-200 hover:bg-white hover:bg-opacity-10 ${
+                        isMobile ? "scale-75" : ""
+                      }`}
+                    >
+                      <Layers
+                        className={`${
+                          isMobile ? "w-5 h-5" : "w-6 h-6"
+                        } text-white`}
+                      />
                     </button>
                   </DialogTrigger>
                   <DialogContent>
@@ -158,9 +212,11 @@ export default function VoiceAssistant() {
                     showTranscriber
                       ? "bg-white bg-opacity-20 shadow-inner"
                       : "hover:bg-white hover:bg-opacity-10"
-                  }`}
+                  } ${isMobile ? "scale-75" : ""}`}
                 >
-                  <Keyboard className="w-6 h-6 text-white" />
+                  <Keyboard
+                    className={`${isMobile ? "w-5 h-5" : "w-6 h-6"} text-white`}
+                  />
                 </button>
               </li>
             </ul>
@@ -173,13 +229,24 @@ export default function VoiceAssistant() {
       <AnimatePresence>
         {showTranscriber && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            initial={isMobile ? { y: "100%" } : { x: "100%" }}
+            animate={isMobile ? { y: 0 } : { x: 0 }}
+            exit={isMobile ? { y: "100%" } : { x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="w-5/12 h-full bg-white shadow-lg overflow-hidden fixed right-0 rounded-bl-3xl"
+            className={`
+              ${
+                isMobile
+                  ? "w-full h-[40vh] shadow-xl fixed bottom-0 z-10 rounded-t-3xl"
+                  : "w-5/12 fixed right-0 h-[91.5vh] lg:h-[85.5vh] rounded-l-[24px]"
+              }
+              bg-white shadow-xl overflow-hidden
+            `}
           >
-            <ChatTranscriber conversation={conversation} />
+            <div
+              className={`${isMobile ? "h-[40vh]" : "h-full"} overflow-y-auto`}
+            >
+              <ChatTranscriber conversation={conversation} />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

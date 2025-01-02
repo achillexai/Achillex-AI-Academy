@@ -38,6 +38,8 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
     }
   }, [user, isSignedIn]);
 
+  
+
   const fetchSubscription = async () => {
     try {
       const subscription = await db

@@ -8,8 +8,13 @@ interface ChatTranscriberProps {
 export function ChatTranscriber({ conversation }: ChatTranscriberProps) {
   return (
     <div className="p-6 h-full flex flex-col">
-      <h2 className="text-2xl font-bold mb-4">Conversation History</h2>
-      <ScrollArea className="flex-grow pr-4 pb-5 mb-20">
+      <div className="mb-4">
+        <h2 className="text-2xl font-bold">Conversation History</h2>
+        <p className="text-muted-foreground text-sm mt-1">
+          Scroll to view more messages
+        </p>
+      </div>
+      <ScrollArea className="flex-grow pr-4 pb-5">
         {conversation.map((msg, index) => (
           <div
             key={index}

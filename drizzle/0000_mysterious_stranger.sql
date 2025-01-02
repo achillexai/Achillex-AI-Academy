@@ -64,3 +64,9 @@ END $$;
 CREATE INDEX IF NOT EXISTS "tutor_idx" ON "message" USING btree ("tutorId");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "category_idx" ON "tutor" USING btree ("categoryId");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "name_idx" ON "tutor" USING btree ("name");
+
+-- Add fullName column to userSubscription table
+ALTER TABLE "userSubscription" ADD COLUMN "fullName" varchar;
+
+-- Add minutes column to userSubscription table
+ALTER TABLE "userSubscription" ADD COLUMN "minutes" integer DEFAULT 0;

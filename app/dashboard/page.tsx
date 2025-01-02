@@ -1,22 +1,13 @@
-"use client";
-import React, { useState } from "react";
-import SearchSection from "./_components/SearchSection";
-import TemplateListSection from "./_components/TemplateListSection";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import DashboardClient from "./_components/DashboardClient";
 
-function Dashboard() {
-  const [userSearchInput, setUserSearchInput] = useState<string>();
+export default async function Dashboard() {
+  const user = await currentUser();
 
-  return (
-    <div className="h-full">
-      {/* Search Section */}
-      <SearchSection
-        onSearchInput={(value: string) => setUserSearchInput(value)}
-      />
+  if (!user) {
+    redirect("/");
+  }
 
-      {/* Template List Section */}
-      <TemplateListSection userSearchInput={userSearchInput} />
-    </div>
-  );
+  return <DashboardClient />;
 }
-
-export default Dashboard;

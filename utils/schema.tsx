@@ -25,6 +25,7 @@ export const AIOutput = pgTable("aiOutput", {
 export const UserSubscription = pgTable("userSubscription", {
   id: serial("id").primaryKey(),
   userId: varchar("userId"),
+  fullName: varchar("fullName"),
   stripeCustomerId: varchar("stripeCustomerId").notNull(),
   stripeSubscriptionId: varchar("stripeSubscriptionId").notNull(),
   stripePriceId: varchar("stripePriceId").notNull(),
@@ -32,6 +33,7 @@ export const UserSubscription = pgTable("userSubscription", {
   stripeStatus: varchar("stripeStatus").notNull(),
   plan: varchar("plan"),
   credits: integer("credits").default(10000),
+  minutes: integer("minutes").default(0),
 });
 
 export const Category = pgTable("category", {
@@ -102,4 +104,3 @@ export const messageRelations = relations(Message, ({ one }) => ({
     references: [Tutor.id],
   }),
 }));
-

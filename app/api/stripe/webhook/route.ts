@@ -43,20 +43,18 @@ export async function POST(req: Request) {
         throw new Error("No user ID found in session metadata");
       }
 
-      // First check if the subscription exists
-      const existingSubscription = await db
-        .select()
-        .from(UserSubscription)
-        .where(eq(UserSubscription.userId, userId))
-        .limit(1);
-
-      const subscriptionData = {
+      const subscriptionData: {
+        stripeCustomerId: string;
+        stripeSubscriptionId: string;
+        stripePriceId: string;
+        stripeStatus: Stripe.Subscription.Status;
+        plan: string;
+        credits: number;
+        stripeCurrentPeriodEnd?: Date;
+      } = {
         stripeCustomerId: subscription.customer as string,
         stripeSubscriptionId: subscription.id,
         stripePriceId: subscription.items.data[0].price.id,
-        stripeCurrentPeriodEnd: new Date(
-          subscription.current_period_end * 1000
-        ),
         stripeStatus: subscription.status,
         plan:
           subscription.items.data[0].price.id ===
@@ -70,23 +68,18 @@ export async function POST(req: Request) {
             : 10000,
       };
 
-      if (existingSubscription.length > 0) {
-        // Update existing subscription
-        await db
-          .update(UserSubscription)
-          .set(subscriptionData)
-          .where(eq(UserSubscription.userId, userId))
-          .execute();
-      } else {
-        // Insert new subscription
-        await db
-          .insert(UserSubscription)
-          .values({
-            userId,
-            ...subscriptionData,
-          })
-          .execute();
+      // Only set stripeCurrentPeriodEnd if the subscription is active
+      if (subscription.status === "active") {
+        subscriptionData.stripeCurrentPeriodEnd = new Date(
+          subscription.current_period_end * 1000
+        );
       }
+
+      await db
+        .update(UserSubscription)
+        .set(subscriptionData)
+        .where(eq(UserSubscription.userId, userId))
+        .execute();
 
       return new NextResponse(null, { status: 200 });
     } catch (error: any) {
@@ -106,11 +99,13 @@ export async function POST(req: Request) {
     const subscription = event.data.object as Stripe.Subscription;
 
     try {
-      const subscriptionData = {
+      const subscriptionData: {
+        stripeStatus: Stripe.Subscription.Status;
+        plan: string;
+        credits: number;
+        stripeCurrentPeriodEnd?: Date;
+      } = {
         stripeStatus: subscription.status,
-        stripeCurrentPeriodEnd: new Date(
-          subscription.current_period_end * 1000
-        ),
         plan:
           subscription.items.data[0].price.id ===
           process.env.NEXT_PUBLIC_STRIPE_MONTHLY_SUBSCRIPTION_PRICE_ID
@@ -120,8 +115,15 @@ export async function POST(req: Request) {
           subscription.items.data[0].price.id ===
           process.env.NEXT_PUBLIC_STRIPE_MONTHLY_SUBSCRIPTION_PRICE_ID
             ? 2000000000
-            : 10000, // Use 2 billion instead
+            : 10000,
       };
+
+      // Only set stripeCurrentPeriodEnd if the subscription is active
+      if (subscription.status === "active") {
+        subscriptionData.stripeCurrentPeriodEnd = new Date(
+          subscription.current_period_end * 1000
+        );
+      }
 
       await db
         .update(UserSubscription)

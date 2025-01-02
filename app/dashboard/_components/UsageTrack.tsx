@@ -1,10 +1,11 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { db } from "@/utils/db";
 import { AIOutput, UserSubscription, Message } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { eq, and } from "drizzle-orm";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import { useUserSubscription } from "@/app/(context)/TotalUsageContext";
 import { useRouter } from "next/navigation";
 import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageContext";
@@ -12,7 +13,7 @@ import type { HistoryItem } from "@/@types/history";
 
 function UsageTrack() {
   const router = useRouter();
-  const { user } = useUser();
+  const { user, isLoaded } = useUser();
   const { totalUsage, setTotalUsage, plan, setPlan, credits, setCredits } =
     useUserSubscription();
   const { updateCreditUsage, setUpdateCreditUsage } = useContext(
@@ -20,16 +21,65 @@ function UsageTrack() {
   );
   const [promptUsage, setPromptUsage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [lastUpdatedFullName, setLastUpdatedFullName] = useState<string | null>(
+    null
+  );
 
   const getMaxPrompts = () => {
     return plan === "monthly" ? Infinity : 1;
   };
 
-  useEffect(() => {
-    if (user) {
-      Promise.all([GetData(), fetchSubscriptionStatus(), fetchPromptUsage()]);
+  const fetchAndUpdateSubscription = useCallback(async () => {
+    if (!user) return;
+
+    try {
+      const subscriptionData = await db
+        .select()
+        .from(UserSubscription)
+        .where(eq(UserSubscription.userId, user.id))
+        .limit(1);
+
+      if (subscriptionData.length > 0) {
+        const subscription = subscriptionData[0];
+        const fullName = user.fullName || "";
+
+        // Update full name if it's different
+        if (fullName !== subscription.fullName) {
+          await db
+            .update(UserSubscription)
+            .set({ fullName: fullName })
+            .where(eq(UserSubscription.userId, user.id));
+          subscription.fullName = fullName;
+          setLastUpdatedFullName(fullName);
+        }
+
+        updateSubscriptionState(subscription);
+      } else {
+        console.error("No subscription found for user:", user.id);
+      }
+    } catch (error) {
+      console.error("Error fetching/updating subscription status:", error);
     }
-  }, [user, updateCreditUsage]);
+  }, [user, router]);
+
+  useEffect(() => {
+    if (isLoaded && user) {
+      Promise.all([
+        GetData(),
+        fetchAndUpdateSubscription(),
+        fetchPromptUsage(),
+      ]).then(() => {
+        // Refresh router after all data is loaded
+        router.refresh();
+      });
+    }
+  }, [isLoaded, user, updateCreditUsage, fetchAndUpdateSubscription, router]);
+
+  useEffect(() => {
+    if (user && user.fullName !== lastUpdatedFullName) {
+      fetchAndUpdateSubscription();
+    }
+  }, [user, lastUpdatedFullName, fetchAndUpdateSubscription]);
 
   const fetchPromptUsage = async () => {
     if (!user?.id) return;
@@ -43,40 +93,22 @@ function UsageTrack() {
       setPromptUsage(messages.length);
     } catch (error) {
       console.error("Error fetching prompt usage:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const fetchSubscriptionStatus = async () => {
-    if (!user) return;
-
-    try {
-      const subscriptionData = await db
-        .select()
-        .from(UserSubscription)
-        .where(eq(UserSubscription.userId, user.id))
-        .limit(1);
-
-      if (subscriptionData && subscriptionData.length > 0) {
-        const subscription = subscriptionData[0];
-
-        if (subscription.stripeStatus === "active") {
-          if (subscription.plan) {
-            if (
-              subscription.plan === "free" ||
-              subscription.plan === "monthly"
-            ) {
-              setPlan(subscription.plan);
-            }
-          }
-          if (subscription.credits !== null) {
-            setCredits(subscription.credits);
-          }
-        }
+  const updateSubscriptionState = (subscription: any) => {
+    if (subscription.stripeStatus === "active") {
+      if (subscription.plan === "free" || subscription.plan === "monthly") {
+        setPlan(subscription.plan);
       }
-    } catch (error) {
-      console.error("Error fetching subscription status:", error);
-    } finally {
-      setIsLoading(false);
+      if (subscription.credits !== null) {
+        setCredits(subscription.credits);
+      }
+    } else {
+      setPlan("free");
+      setCredits(10000);
     }
   };
 
@@ -84,7 +116,6 @@ function UsageTrack() {
     if (!user?.primaryEmailAddress?.emailAddress) return;
 
     try {
-      // Using email address for AIOutput query since that's what's stored in the database
       const result = await db
         .select()
         .from(AIOutput)
@@ -105,7 +136,6 @@ function UsageTrack() {
 
   const GetTotalUsage = (result: HistoryItem[]) => {
     const total = result.reduce((acc, element) => {
-      // Parse aiResponse if it's a string
       const response =
         typeof element.aiResponse === "string"
           ? element.aiResponse
@@ -129,7 +159,7 @@ function UsageTrack() {
 
   if (isLoading) {
     return (
-      <div className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 p-3 text-white rounded-lg">
+      <div className="bg-primary p-3 text-white rounded-lg">
         Loading usage data...
       </div>
     );
@@ -137,7 +167,7 @@ function UsageTrack() {
 
   return (
     <div className="">
-      <div className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 p-3 text-white rounded-lg">
+      <div className="bg-primary p-3 text-white rounded-lg">
         <h2 className="font-medium">Usage</h2>
         <div className="h-2 bg-[#69b1be] w-full rounded-full mt-3">
           <div
