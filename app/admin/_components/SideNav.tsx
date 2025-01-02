@@ -2,19 +2,16 @@
 import {
   Home,
   Users,
-  Settings,
-  BarChart,
   FileText,
   LogOut,
   PanelLeftClose,
-  UserX
+  UserX,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-
 
 interface SideNavProps {
   isOpen: boolean;
@@ -23,8 +20,33 @@ interface SideNavProps {
 
 export default function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
   const pathname = usePathname();
+  const router = useRouter();
 
-  const navItems = [
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("/api/admin/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        router.push("/admin/login");
+      } else {
+        console.error("Logout failed");
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
+  interface NavItem {
+    href: string;
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    label: string;
+    onClick?: () => void;
+  }
+
+  const navItems: { section: string; items: NavItem[] }[] = [
     {
       section: "Main",
       items: [
@@ -41,7 +63,9 @@ export default function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
     },
     {
       section: "Admin",
-      items: [{ href: "/api/admin/logout", icon: LogOut, label: "Logout" }],
+      items: [
+        { href: "#", icon: LogOut, label: "Logout", onClick: handleLogout },
+      ],
     },
   ];
 
@@ -98,25 +122,34 @@ export default function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
               {section.section}
             </h3>
             {section.items.map((item) => (
-              <Link
-                href={item.href}
+              <div
                 key={uuidv4()}
-                onClick={isMobile ? toggleSidebar : undefined}
+                onClick={(e) => {
+                  if (item.onClick) {
+                    e.preventDefault();
+                    item.onClick();
+                  }
+                  if (isMobile) {
+                    toggleSidebar();
+                  }
+                }}
                 className="block"
               >
-                <div
-                  className={`flex items-center px-4 py-2 mb-3 hover:bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 hover:text-white
-                    rounded-lg cursor-pointer transition-all hover-parent
-                    ${
-                      pathname === item.href
-                        ? "bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 text-white"
-                        : ""
-                    }`}
-                >
-                  <item.icon className="h-5 w-5 mr-3 icon-bounce" />
-                  <span className="text-base">{item.label}</span>
-                </div>
-              </Link>
+                <Link href={item.href}>
+                  <div
+                    className={`flex items-center px-4 py-2 mb-3 hover:bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 hover:text-white
+                      rounded-lg cursor-pointer transition-all hover-parent
+                      ${
+                        pathname === item.href
+                          ? "bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 text-white"
+                          : ""
+                      }`}
+                  >
+                    <item.icon className="h-5 w-5 mr-3 icon-bounce" />
+                    <span className="text-base">{item.label}</span>
+                  </div>
+                </Link>
+              </div>
             ))}
           </div>
         ))}

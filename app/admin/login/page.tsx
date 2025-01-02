@@ -29,10 +29,11 @@ export default function AdminLogin() {
         body: JSON.stringify({ username, password }),
       });
 
-      if (res.ok) {
+      const data = await res.json();
+
+      if (res.ok && data.success) {
         router.push("/admin");
       } else {
-        const data = await res.json();
         setError(data.message || "Invalid credentials");
         toast({
           title: "Login Failed",

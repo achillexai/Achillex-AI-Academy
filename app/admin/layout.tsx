@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import SideNav from "./_components/SideNav";
 import Header from "./_components/Header";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,11 +13,43 @@ function AdminLayout({
   children: React.ReactNode;
 }>) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
+  const router = useRouter();
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   const isLoginPage = pathname === "/admin/login";
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await fetch("/api/admin/check-auth", {
+          credentials: "include",
+        });
+        if (res.ok) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+          if (!isLoginPage) {
+            router.push("/admin/login");
+          }
+        }
+      } catch (error) {
+        console.error("Auth check error:", error);
+        setIsAuthenticated(false);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, [isLoginPage, router]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   if (isLoginPage) {
     return (
@@ -27,6 +59,10 @@ function AdminLayout({
         <Toaster />
       </div>
     );
+  }
+
+  if (!isAuthenticated) {
+    return null;
   }
 
   return (
