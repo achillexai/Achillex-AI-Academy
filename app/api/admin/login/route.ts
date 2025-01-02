@@ -22,3 +22,23 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ success: false }, { status: 401 });
 }
+
+export async function GET(request: Request) {
+  const cookieStore = cookies();
+  const host = request.headers.get("host") || "";
+  const domain = host.includes("localhost") ? "localhost" : host.split(":")[0];
+
+  cookieStore.set("admin_token", "", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 0,
+    path: "/",
+    domain: domain,
+  });
+
+  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
+  return NextResponse.redirect(
+    new URL("/admin/login", `${protocol}://${host}`)
+  );
+}
