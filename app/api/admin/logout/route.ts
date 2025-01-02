@@ -1,16 +1,14 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-export async function GET(request: Request) {
+const BASE_URL =
+  process.env.NEXT_PUBLIC_APP_MODE === "production"
+    ? "https://www.achillexai.academy"
+    : "http://localhost:3000";
+
+export async function GET() {
   const cookieStore = cookies();
   cookieStore.delete("admin_token");
 
-  // Get the host from the request headers
-  const host = request.headers.get("host") || "achillexai.academy";
-  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
-
-  // Use the current domain for redirect
-  return NextResponse.redirect(
-    new URL("/admin/login", `${protocol}://${host}`)
-  );
+  return NextResponse.redirect(new URL("/admin/login", BASE_URL));
 }

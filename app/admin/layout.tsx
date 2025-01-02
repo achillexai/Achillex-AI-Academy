@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import SideNav from "./_components/SideNav";
 import Header from "./_components/Header";
 import { Toaster } from "@/components/ui/toaster";
@@ -14,28 +14,10 @@ function AdminLayout({
 }>) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   const isLoginPage = pathname === "/admin/login";
-
-  useEffect(() => {
-    console.log("Current pathname:", pathname);
-    console.log("Is login page:", isLoginPage);
-    const checkAuth = async () => {
-      const res = await fetch("/api/admin/check-auth", {
-        credentials: "include",
-      });
-      if (!res.ok) {
-        router.push("/admin/login");
-      }
-    };
-
-    if (!isLoginPage) {
-      checkAuth();
-    }
-  }, [isLoginPage, router, pathname]);
 
   if (isLoginPage) {
     return (
