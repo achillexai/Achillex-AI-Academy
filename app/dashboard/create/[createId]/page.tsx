@@ -32,25 +32,25 @@ export default async function CreateIdPage({ params }: CreateIdPageProps) {
     .limit(1);
 
   // Show upgrade plan message if user is not on monthly plan
-  // if (currentSubscription?.plan !== "monthly") {
-  //   return (
-  //     <div className="flex items-center justify-center bg-gray-100 min-h-96">
-  //       <div className="border border-1 bg-white p-8 rounded-lg shadow-sm text-center max-h-full overflow-auto">
-  //         <h2 className="text-2xl font-bold mb-4">Upgrade Your Plan</h2>
-  //         <p className="mb-6">
-  //           To access the AI Tutor feature, please upgrade your plan to the
-  //           monthly subscription.
-  //         </p>
-  //         <a
-  //           href="/dashboard/billing"
-  //           className="bg-primary text-white px-6 py-2 rounded hover:bg-primary/90 transition-colors"
-  //         >
-  //           Upgrade Now
-  //         </a>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  if (currentSubscription?.plan !== "monthly") {
+    return (
+      <div className="flex items-center justify-center bg-gray-100 min-h-96">
+        <div className="border border-1 bg-white p-8 rounded-lg shadow-sm text-center max-h-full overflow-auto">
+          <h2 className="text-2xl font-bold mb-4">Upgrade Your Plan</h2>
+          <p className="mb-6">
+            To access the AI Tutor feature, please upgrade your plan to the
+            monthly subscription.
+          </p>
+          <a
+            href="/dashboard/billing"
+            className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 text-white px-6 py-2 rounded hover:bg-primary/90 transition-colors"
+          >
+            Upgrade Now
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   let tutor = null;
   if (params.createId !== "new") {

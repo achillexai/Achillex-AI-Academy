@@ -1,17 +1,71 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import CourseworkComponent from "./_components/CourseworkComponent";
+import TutorsComponent from "./_components/TutorsComponent";
 
-const page = () => {
+const Page = () => {
+  const [activeComponent, setActiveComponent] = useState<string | null>(null);
+
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 p-8">
-      <h1 className="text-6xl md:text-8xl font-bold text-gray-800 text-center mb-4">
-        Coming Soon
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-center mb-12">
+        Coursework & Tutor Management
       </h1>
-      <p className="text-3xl md:text-4xl font-semibold text-primary animate-pulse">
-        Will be released in v1.0
-      </p>
-      <div className="mt-8 text-gray-600 text-xl">Tutor Management</div>
+
+      {activeComponent === null ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Card
+            className="cursor-pointer hover:shadow-lg max-w-lg transition-shadow"
+            onClick={() => setActiveComponent("coursework")}
+          >
+            <CardHeader>
+              <CardTitle className="text-2xl">Coursework</CardTitle>
+              <CardDescription>
+                Manage your AI coursework and assignments.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button>Edit</Button>
+            </CardContent>
+          </Card>
+
+          <Card
+            className="cursor-pointer hover:shadow-lg max-w-lg transition-shadow"
+            onClick={() => setActiveComponent("tutors")}
+          >
+            <CardHeader>
+              <CardTitle className="text-2xl">Tutors</CardTitle>
+              <CardDescription>
+                Manage your AI tutors and sessions.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button>Edit</Button>
+            </CardContent>
+          </Card>
+        </div>
+      ) : (
+        <div>
+          <Button
+            onClick={() => setActiveComponent(null)}
+            className="ml-4 mb-6"
+          >
+            Back
+          </Button>
+          {activeComponent === "coursework" && <CourseworkComponent />}
+          {activeComponent === "tutors" && <TutorsComponent />}
+        </div>
+      )}
     </div>
   );
 };
 
-export default page;
+export default Page;

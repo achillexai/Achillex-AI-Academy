@@ -108,7 +108,7 @@ export default function UserManagement() {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">Users</h2>
+        <h2 className="text-3xl font-bold mb-6">Users</h2>
         <div className="space-x-2">
           <Button onClick={() => setShowAddForm(!showAddForm)}>
             {showAddForm ? "Cancel" : "Add User"}

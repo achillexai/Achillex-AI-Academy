@@ -57,7 +57,7 @@ export default function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
     {
       section: "Reports",
       items: [
-        { href: "/admin/tutors", icon: UserX, label: "Tutors" },
+        { href: "/admin/tutors", icon: UserX, label: "Coursework/Tutors" },
         { href: "/admin/reports", icon: FileText, label: "Reports" },
       ],
     },

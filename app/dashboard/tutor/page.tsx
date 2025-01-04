@@ -1,19 +1,35 @@
+// @ts-nocheck
+"use client";
 import React from "react";
-import { Categories } from "./_components/Categories";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import SearchBar from "./_components/Search";
+import { Categories } from "./_components/Categories";
+import TutorsWrapper from "./_components/TutorsWrapper";
 import { db } from "@/utils/db";
 import { Category } from "@/utils/schema";
-import TutorsWrapper from "./_components/TutorsWrapper";
 
 interface RootPageProps {
-  searchParams: {
-    categoryId?: string;
-    name?: string;
-  };
+  searchParams: URLSearchParams;
 }
 
-const RootPage = async ({ searchParams }: RootPageProps) => {
-  const categories = await db.select().from(Category);
+const RootPage = ({ searchParams }: RootPageProps) => {
+  const [categories, setCategories] = useState<
+    (typeof Category.$inferSelect)[]
+  >([]);
+  const searchParamsHook = useSearchParams();
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const fetchedCategories = await db.select().from(Category);
+      const validCategories = fetchedCategories.map((category) => ({
+        ...category,
+        name: category.name || "Unknown",
+      }));
+      setCategories(validCategories);
+    };
+    fetchCategories();
+  }, []);
 
   return (
     <div className="max-w-full overflow-x-hidden">

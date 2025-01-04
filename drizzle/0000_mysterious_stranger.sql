@@ -70,3 +70,10 @@ ALTER TABLE "userSubscription" ADD COLUMN "fullName" varchar;
 
 -- Add minutes column to userSubscription table
 ALTER TABLE "userSubscription" ADD COLUMN "minutes" integer DEFAULT 0;
+
+-- Insert categories to category table
+INSERT INTO category (name)
+VALUES 
+  ('College Subjects'),
+  ('Popular Subjects'),
+  ('General Subjects');
