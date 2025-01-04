@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SideNav from "./_components/SideNav";
 import Header from "./_components/Header";
 import { Toaster } from "@/components/ui/toaster";
 import { UserProvider } from "../(context)/TotalUsageContext";
 import { UpdateCreditUsageContext } from "../(context)/UpdateCreditUsageContext";
 import NextTopLoader from "nextjs-toploader";
+import { LoadingSpinner } from "./_components/Loading";
 import "./globals.css";
 
 function DashboardLayout({
@@ -13,10 +14,19 @@ function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isLoading, setIsLoading] = useState(true);
   const [updateCreditUsage, setUpdateCreditUsage] = useState<any>();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
+
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <UserProvider>

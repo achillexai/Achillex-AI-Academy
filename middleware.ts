@@ -64,6 +64,7 @@ export default clerkMiddleware((auth, req, evt) => {
     }
 
     // Manage subscription for authenticated users
+    console.log(`Processing dashboard request for user: ${userId}`);
     evt.waitUntil(manageUserSubscription(userId));
   }
 
@@ -72,6 +73,8 @@ export default clerkMiddleware((auth, req, evt) => {
 
 async function manageUserSubscription(userId: string) {
   try {
+    console.log(`Checking subscription for user: ${userId}`);
+
     const existingSubscription = await db
       .select()
       .from(UserSubscription)
@@ -79,26 +82,47 @@ async function manageUserSubscription(userId: string) {
       .limit(1);
 
     if (!existingSubscription || existingSubscription.length === 0) {
-      await db
-        .insert(UserSubscription)
-        .values({
-          userId: userId,
-          stripeCustomerId: "not_set",
-          stripeSubscriptionId: "not_set",
-          stripePriceId: "not_set",
-          stripeStatus: "inactive",
-          plan: "free",
-          credits: 10000,
-          minutes: 0,
-          stripeCurrentPeriodEnd: null,
-          fullName: "", // Initialize with an empty string
-        })
-        .execute();
+      console.log(
+        `No existing subscription found for user: ${userId}. Creating new subscription.`
+      );
 
-      console.log("Created subscription for user:", userId);
+      try {
+        await db
+          .insert(UserSubscription)
+          .values({
+            userId: userId,
+            stripeCustomerId: "not_set",
+            stripeSubscriptionId: "not_set",
+            stripePriceId: "not_set",
+            stripeStatus: "inactive",
+            plan: "free",
+            credits: 10000,
+            minutes: 0,
+            stripeCurrentPeriodEnd: null,
+            fullName: "", // Initialize with an empty string
+          })
+          .execute();
+
+        console.log(`Created subscription for user: ${userId}`);
+      } catch (insertError) {
+        // Check if the error is due to a unique constraint violation
+        //
+        if ((insertError as any).code === "23505") {
+          // PostgreSQL unique violation error code
+          console.log(
+            `Subscription already exists for user: ${userId}. Skipping creation.`
+          );
+        } else {
+          throw insertError; // Re-throw if it's a different error
+        }
+      }
+    } else {
+      console.log(
+        `Existing subscription found for user: ${userId}. Skipping creation.`
+      );
     }
   } catch (error) {
-    console.error("Error managing user subscription:", error);
+    console.error(`Error managing user subscription for ${userId}:`, error);
   }
 }
 

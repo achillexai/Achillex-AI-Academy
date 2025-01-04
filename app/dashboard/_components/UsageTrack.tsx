@@ -159,7 +159,7 @@ function UsageTrack() {
 
   if (isLoading) {
     return (
-      <div className="bg-primary p-3 text-white rounded-lg">
+      <div className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 p-3 text-white rounded-lg">
         Loading usage data...
       </div>
     );
@@ -167,9 +167,9 @@ function UsageTrack() {
 
   return (
     <div className="">
-      <div className="bg-primary p-3 text-white rounded-lg">
+      <div className="bg-gradient-to-br from-cyan-500 via-cyan-700 to-zinc-900 p-3 text-white rounded-lg">
         <h2 className="font-medium">Usage</h2>
-        <div className="h-2 bg-[#69b1be] w-full rounded-full mt-3">
+        <div className="h-2 bg-gradient-to-br from-cyan-700 via-cyan-200 to-zinc-600 w-full rounded-full mt-3">
           <div
             className="h-2 bg-white rounded-full transition-all duration-300"
             style={{
@@ -180,7 +180,7 @@ function UsageTrack() {
         <h2 className="text-sm my-2">
           {totalUsage}/{plan === "monthly" ? "Unlimited" : credits} credits used
         </h2>
-        <div className="h-2 bg-[#69b1be] w-full rounded-full mt-3">
+        <div className="h-2 bg-gradient-to-br from-cyan-700 via-cyan-200 to-zinc-600 w-full rounded-full mt-3">
           <div
             className="h-2 bg-white rounded-full transition-all duration-300"
             style={{

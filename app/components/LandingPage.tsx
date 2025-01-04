@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
@@ -19,7 +19,27 @@ declare global {
   }
 }
 
+// For refreshing the page every minute
 const LandingPage: React.FC = () => {
+  useEffect(() => {
+    // Check if we need to refresh
+    const shouldRefresh = () => {
+      const lastRefresh = localStorage.getItem("lastRefreshTime");
+      const now = new Date().getTime();
+
+      // If no previous refresh or more than 1 minute ago
+      if (!lastRefresh || now - parseInt(lastRefresh) > 60000) {
+        localStorage.setItem("lastRefreshTime", now.toString());
+        return true;
+      }
+      return false;
+    };
+
+    if (shouldRefresh()) {
+      window.location.reload();
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -245,7 +265,7 @@ const LandingPage: React.FC = () => {
           </figure>
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-              <div className="service_content" >
+              <div className="service_content">
                 <h5>Features we provide</h5>
                 <h2>Our Purpose is To Deliver Excellence in Everything</h2>
                 <Link
@@ -664,7 +684,7 @@ const LandingPage: React.FC = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-              <div className="faq_content" >
+              <div className="faq_content">
                 <h5>faq's</h5>
                 <h2>Frequently Asked Questions</h2>
                 <div className="faq">

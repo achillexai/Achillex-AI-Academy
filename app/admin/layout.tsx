@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import SideNav from "./_components/SideNav";
 import Header from "./_components/Header";
+import { LoadingSpinner } from "./_components/LoadingSpinner";
 import { Toaster } from "@/components/ui/toaster";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
@@ -48,7 +49,7 @@ function AdminLayout({
   }, [isLoginPage, router]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner />;
   }
 
   if (isLoginPage) {
