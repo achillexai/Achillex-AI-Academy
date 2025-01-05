@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
-import { LoadingSpinner } from "./(routes)/chat/[chatid]/_components/Loading";
+import { LoadingSpinner } from "./(routes)/chat/[chatid]/_components/loading";
 
 const ChatLayout = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
