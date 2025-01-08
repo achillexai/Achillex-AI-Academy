@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/utils/db";
 import { eq } from "drizzle-orm";
 import axios from "axios";
-import { UserSubscription } from "@/utils/schema";
+import { UserSubscription, Counter } from "@/utils/schema";
 
 export async function POST(req: NextRequest) {
   try {
@@ -31,15 +31,31 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Get the current counter value for PayPal and increment it
+    const counter = await db
+      .select()
+      .from(Counter)
+      .where(eq(Counter.type, "paypal"))
+      .execute();
+    const currentCounter = counter[0].value;
+    const newCounter = currentCounter + 1;
+
+    // Update the counter value in the database
+    await db
+      .update(Counter)
+      .set({ value: newCounter })
+      .where(eq(Counter.type, "paypal"))
+      .execute();
+
     // Update subscription
     await db
       .update(UserSubscription)
       .set({
         plan: "monthly",
         credits: 2000000000,
-        stripeSubscriptionId: "",
-        stripeCustomerId: "",
-        stripePriceId: "",
+        stripeSubscriptionId: `paypal1-${newCounter}`,
+        stripeCustomerId: `paypal1-${newCounter}`,
+        stripePriceId: `paypal1-${newCounter}`,
         stripeCurrentPeriodEnd: null,
         stripeStatus: "active",
       })

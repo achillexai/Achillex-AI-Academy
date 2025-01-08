@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/utils/db";
 import { eq } from "drizzle-orm";
 import crypto from "crypto";
-import { UserSubscription } from "@/utils/schema";
+import { UserSubscription, Counter } from "@/utils/schema";
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,15 +29,31 @@ export async function POST(req: NextRequest) {
     );
 
     if (isPaymentVerified) {
+      // Get the current counter value for Razorpay and increment it
+      const counter = await db
+        .select()
+        .from(Counter)
+        .where(eq(Counter.type, "razorpay"))
+        .execute();
+      const currentCounter = counter[0].value;
+      const newCounter = currentCounter + 1;
+
+      // Update the counter value in the database
+      await db
+        .update(Counter)
+        .set({ value: newCounter })
+        .where(eq(Counter.type, "razorpay"))
+        .execute();
+
       // Update user subscription in the database
       await db
         .update(UserSubscription)
         .set({
           plan: "monthly",
           credits: 2000000000, // Using 2 billion as "unlimited"
-          stripeSubscriptionId: "", // Clear Stripe data if present
-          stripeCustomerId: "",
-          stripePriceId: "",
+          stripeSubscriptionId: `razorpay1-${newCounter}`,
+          stripeCustomerId: `razorpay1-${newCounter}`,
+          stripePriceId: `razorpay1-${newCounter}`,
           stripeCurrentPeriodEnd: null,
           stripeStatus: "active",
         })

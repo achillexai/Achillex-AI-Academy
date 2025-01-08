@@ -36,6 +36,12 @@ export const UserSubscription = pgTable("userSubscription", {
   minutes: integer("minutes").default(0),
 });
 
+export const Counter = pgTable("counter", {
+  id: serial("id").primaryKey(),
+  type: varchar("type").notNull(), // "paypal" or "razorpay"
+  value: integer("value").notNull().default(0),
+});
+
 export const Category = pgTable("category", {
   id: uuid("id").defaultRandom().primaryKey(),
   name: varchar("name"),

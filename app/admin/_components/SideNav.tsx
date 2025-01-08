@@ -2,7 +2,7 @@
 import {
   Home,
   Users,
-  FileText,
+  Sparkles,
   LogOut,
   PanelLeftClose,
   UserX,
@@ -55,14 +55,14 @@ export default function SideNav({ isOpen, toggleSidebar }: SideNavProps) {
       ],
     },
     {
-      section: "Reports",
+      section: "Settings",
       items: [
         { href: "/admin/tutors", icon: UserX, label: "Coursework/Tutors" },
-        { href: "/admin/reports", icon: FileText, label: "Reports" },
+        { href: "/admin/training", icon: Sparkles, label: "Model Training" },
       ],
     },
     {
-      section: "Admin",
+      section: "Others",
       items: [
         { href: "#", icon: LogOut, label: "Logout", onClick: handleLogout },
       ],

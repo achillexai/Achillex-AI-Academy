@@ -7,10 +7,10 @@ const page = () => {
         Coming Soon
       </h1>
       <p className="text-3xl md:text-4xl font-semibold text-primary animate-pulse">
-        Will be released in v1.0
+        Will be released in v2.0
       </p>
       <div className="mt-8 text-gray-600 text-xl">
-        Reports & Invoice Management
+        Model Training & Management
       </div>
     </div>
   );
