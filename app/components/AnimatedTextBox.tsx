@@ -18,6 +18,7 @@ const greetings = [
 const AnimatedTextBox: React.FC = () => {
   const [text, setText] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const [isTextAnimated, setIsTextAnimated] = useState(false);
   const speechSynthesisRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const AnimatedTextBox: React.FC = () => {
     if ("speechSynthesis" in window) {
       const utterance = new SpeechSynthesisUtterance(textToSpeak);
       utterance.rate = 1; // Slightly faster for more energy
-      utterance.pitch = 1.2; // Slightly higher pitch for a younger, enthusiastic voice
+      utterance.pitch = 1.1; // Slightly higher pitch for a younger, enthusiastic voice
       utterance.volume = 1;
 
       const voices = window.speechSynthesis.getVoices();
@@ -65,17 +66,31 @@ const AnimatedTextBox: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ type: "spring", stiffness: 100, damping: 15 }}
+          onAnimationComplete={() => setIsTextAnimated(true)}
           className="relative bg-gradient-to-tr from-cyan-500 via-cyan-700 to-zinc-900 p-4 rounded-tl-2xl rounded-bl-2xl rounded-tr-2xl shadow-lg max-w-md mr-4 z-10"
         >
-          <motion.p
-            key={text}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-lg text-white"
-          >
-            {text}
-          </motion.p>
+          <AnimatePresence mode="wait">
+            {isTextAnimated && (
+              <motion.p
+                key={text}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-lg text-white"
+              >
+                {text.split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.03 }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </motion.p>
+            )}
+          </AnimatePresence>
         </motion.div>
       )}
     </AnimatePresence>
