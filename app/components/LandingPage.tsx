@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
@@ -7,6 +7,7 @@ import Script from "next/script";
 import Header from "./Header";
 import Footer from "./Footer";
 import Subscriptions from "./Subscriptions";
+import AnimatedTextBox from "./AnimatedTextBox";
 
 declare global {
   namespace JSX {
@@ -126,6 +127,10 @@ const LandingPage: React.FC = () => {
             height={500}
           />
         </figure>
+
+        <div className="relative left-60 top-[-40px] z-10">
+          <AnimatedTextBox />
+        </div>
 
         <div className="robot overflow-hidden relative pt-8">
           <div className="overflow-hidden transform mx-[-100px] sm:mx-[-40px] md:mx-[-0px] scale-[1.5] md:scale-[1.2] origin-center">
