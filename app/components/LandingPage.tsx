@@ -128,7 +128,7 @@ const LandingPage: React.FC = () => {
           />
         </figure>
 
-        <div className="relative left-60 top-[-40px] z-10">
+        <div className="relative z-10 lg:left-32 lg:top-[-40px] md:left-72 md:top-[-40px] sm:left-40 sm:bottom-[-550px] left-4 bottom-[-530px]">
           <AnimatedTextBox />
         </div>
 
