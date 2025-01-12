@@ -121,7 +121,7 @@ p {
 /* Home Page Style */
 
 .banner_outer {
-  background: url("../images/banner-background.png");
+  background: url("../images/banner-background.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
@@ -7,7 +7,13 @@ import Script from "next/script";
 import Header from "./Header";
 import Footer from "./Footer";
 import Subscriptions from "./Subscriptions";
+import { Inter } from "next/font/google";
 import AnimatedTextBox from "./AnimatedTextBox";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 declare global {
   namespace JSX {
@@ -21,7 +27,7 @@ declare global {
 }
 
 // For refreshing the page every minute
-const LandingPage: React.FC = () => {
+const LandingPage = () => {
   useEffect(() => {
     // Check if we need to refresh
     const shouldRefresh = () => {
@@ -114,8 +120,23 @@ const LandingPage: React.FC = () => {
           href="/assets/images/favicon/favicon-16x16.png"
         />
         <link rel="manifest" href="/assets/images/favicon/manifest.json" />
+        <link
+          rel="preload"
+          href="/assets/images/banner-background.webp"
+          as="image"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/aos@next/dist/aos.css"
+          media="print"
+          onLoad={(e) => {
+            (e.target as HTMLLinkElement).media = "all";
+          }}
+        />
       </Head>
-      <div className="banner_outer">
+      <div className={`banner_outer ${inter.className}`}>
         {/* Header */}
         <Header />
 
@@ -125,6 +146,7 @@ const LandingPage: React.FC = () => {
             alt=""
             width={500}
             height={500}
+            loading="eager"
           />
         </figure>
 
@@ -141,16 +163,21 @@ const LandingPage: React.FC = () => {
             <spline-viewer url="https://prod.spline.design/AqtlWJlNbO-ZMkvz/scene.splinecode"></spline-viewer>
           </div>
         </div>
-
         {/* Hero Section */}
         <section className="banner-section">
           <div className="container-fluid">
             <div className="mt-8 z-10 relative">
               <div className="banner_content justify-center text-center z-10 relative">
-                <h1 className="text-white justify-center text-center text-xl sm:text-3xl md:text-5xl lg:text-8xl uppercase">
+                <h1
+                  className="text-white justify-center text-center text-xl sm:text-3xl md:text-5xl lg:text-8xl uppercase"
+                  style={{ minHeight: "1em" }}
+                >
                   Achillex AI Academy
                 </h1>
-                <p className="text-white p-0 text-center">
+                <p
+                  className="text-white p-0 text-center"
+                  style={{ minHeight: "3em" }}
+                >
                   Revolutionize Learning with AI: Smarter, Faster, Personalized
                   Education for Everyone.
                 </p>
