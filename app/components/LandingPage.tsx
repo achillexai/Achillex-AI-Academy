@@ -150,7 +150,7 @@ const LandingPage = () => {
           />
         </figure>
 
-        <div className="relative z-10 lg:left-32 lg:top-[-40px] md:left-72 md:top-[-40px] sm:left-40 sm:top-[-160px] left-4 top-[-160px]">
+        <div className="relative z-10 lg:left-32 lg:top-[-40px] md:left-72 md:top-[-40px] sm:left-40 sm:top-[-160px] left-16 top-[-160px] max-w-xs sm:max-w-sm md:max-w-md">
           <AnimatedTextBox />
         </div>
 

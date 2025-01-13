@@ -80,7 +80,7 @@ const AnimatedTextBox: React.FC = () => {
         open={showPermissionDialog}
         onOpenChange={setShowPermissionDialog}
       >
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="">
           <DialogHeader>
             <DialogTitle>Clyra's Voice Awaits!</DialogTitle>
             <DialogDescription>
@@ -110,7 +110,7 @@ const AnimatedTextBox: React.FC = () => {
             exit={{ opacity: 0, x: -100 }}
             transition={{ type: "spring", stiffness: 100, damping: 15 }}
             onAnimationComplete={() => setIsTextAnimated(true)}
-            className="relative bg-gradient-to-tr from-cyan-500 via-cyan-700 to-zinc-900 p-4 md:p-6 rounded-tl-2xl rounded-bl-2xl rounded-tr-2xl shadow-lg max-w-md mr-4 z-10"
+            className="relative bg-gradient-to-tr from-cyan-500 via-cyan-700 to-zinc-900 p-4 md:p-6 rounded-tl-2xl rounded-bl-2xl rounded-tr-2xl shadow-lg max-w-xs sm:max-w-sm md:max-w-md mr-4 z-10"
           >
             <Button
               variant="ghost"

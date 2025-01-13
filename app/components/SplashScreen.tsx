@@ -30,7 +30,7 @@ export default function SplashScreen({
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b  from-cyan-500 via-cyan-700 to-zinc-900">
-      <div className="w-[500px] h-[500px] relative mb-6">
+      <div className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] relative mb-6">
         <Image
           src="/lottie.gif"
           alt="Loading animation"
