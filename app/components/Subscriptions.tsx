@@ -27,11 +27,17 @@ const Subscriptions = () => {
                       height={300}
                     />
                   </figure>
-                  <div className="content">
-                    <span className="text-white">Starter</span>
-                    <h4 className="text-white text-5xl">10$</h4>
-                    <p className="text-sm text-white">/month</p>
-                    <i className="circle fa-regular fa-angle-right"></i>
+                  <div className="content relative">
+                    <span className="text-white block mb-2">Starter</span>
+                    <h4 className="text-white text-5xl mb-4">$0/month</h4>
+                    <p className="text-sm text-white">
+                      <ul>
+                        <li>AI Coursework</li>
+                        <li className="line-through">AI Tutor</li>
+                        <li className="line-through">AI Voice Agent (Clyra)</li>
+                      </ul>
+                    </p>
+                    <i className="circle fa-regular fa-angle-right absolute bottom-0 right-0"></i>
                   </div>
                 </div>
               </Link>
@@ -47,11 +53,17 @@ const Subscriptions = () => {
                       height={300}
                     />
                   </figure>
-                  <div className="content">
-                    <span className="text-white">Professional</span>
-                    <h4 className="text-white text-5xl">30$</h4>
-                    <p className="text-sm text-white">/month</p>
-                    <i className="circle fa-regular fa-angle-right"></i>
+                  <div className="content relative">
+                    <span className="text-white block mb-2">Monthly</span>
+                    <h4 className="text-white text-5xl mb-4">$20/month</h4>
+                    <p className="text-sm text-white">
+                      <ul>
+                        <li>AI Coursework</li>
+                        <li>AI Tutor</li>
+                        <li>AI Voice Agent (Clyra)</li>
+                      </ul>
+                    </p>
+                    <i className="circle fa-regular fa-angle-right absolute bottom-0 right-5"></i>
                   </div>
                 </div>
               </Link>
@@ -67,11 +79,17 @@ const Subscriptions = () => {
                       height={300}
                     />
                   </figure>
-                  <div className="content">
-                    <span className="text-white">Teams</span>
-                    <h4 className="text-white text-5xl">50$</h4>
-                    <p className="text-sm text-white">/month</p>
-                    <i className="circle fa-regular fa-angle-right"></i>
+                  <div className="content relative">
+                    <span className="text-white block mb-2">Yearly</span>
+                    <h4 className="text-white text-5xl mb-4">$200/month</h4>
+                    <p className="text-sm text-white">
+                      <ul>
+                        <li>AI Coursework</li>
+                        <li>AI Tutor</li>
+                        <li>AI Voice Agent (Clyra)</li>
+                      </ul>
+                    </p>
+                    <i className="circle fa-regular fa-angle-right absolute bottom-0 right-12"></i>
                   </div>
                 </div>
               </Link>

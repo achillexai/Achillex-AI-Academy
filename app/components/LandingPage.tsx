@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import Subscriptions from "./Subscriptions";
 import { Inter } from "next/font/google";
 import AnimatedTextBox from "./AnimatedTextBox";
+import UserJoinedDisplay from "./UsersJoined";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,8 +27,21 @@ declare global {
   }
 }
 
-// For refreshing the page every minute
 const LandingPage = () => {
+  const imageUrls = [
+    "/user1.webp",
+    "/user2.webp",
+    "/user3.webp",
+    "/user4.webp",
+    "/user5.webp",
+    "/user6.webp",
+    "/user7.webp",
+    "/user8.webp",
+    "/user9.webp",
+  ];
+  const userCount = 20;
+
+  // For refreshing the page every minute
   useEffect(() => {
     // Check if we need to refresh
     const shouldRefresh = () => {
@@ -150,10 +164,12 @@ const LandingPage = () => {
           />
         </figure>
 
+        {/* Animated Text Box */}
         <div className="relative z-10 lg:left-32 lg:top-[-40px] md:left-72 md:top-[-40px] sm:left-40 sm:top-[-160px] left-16 top-[-160px] max-w-xs sm:max-w-sm md:max-w-md">
           <AnimatedTextBox />
         </div>
 
+        {/* Robot */}
         <div className="robot overflow-hidden relative pt-8">
           <div className="overflow-hidden transform mx-[-100px] sm:mx-[-40px] md:mx-[-0px] scale-[1.5] md:scale-[1.2] origin-center">
             <Script
@@ -163,6 +179,7 @@ const LandingPage = () => {
             <spline-viewer url="https://prod.spline.design/AqtlWJlNbO-ZMkvz/scene.splinecode"></spline-viewer>
           </div>
         </div>
+
         {/* Hero Section */}
         <section className="banner-section">
           <div className="container-fluid">
@@ -203,8 +220,14 @@ const LandingPage = () => {
           </figure>
         </section>
       </div>
+
+      {/* User Joined Display Section */}
+      <div>
+        <UserJoinedDisplay userCount={userCount} imageUrls={imageUrls} />
+      </div>
+
       {/* About Section */}
-      <section className="about-section">
+      <section className="about-section mt-[-100px]">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
@@ -284,6 +307,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+
       {/* Features Section */}
       <section className="service-section position-relative">
         <div className="container">
@@ -454,7 +478,7 @@ const LandingPage = () => {
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1 order-2">
               <div className="choose_wrapper mt-20">
-                <figure className="mb-0 choose-image">
+                <figure className="md:mt-28 mt-20 scale-110 choose-image">
                   <img src="/assets/images/choose-image.png" alt="" />
                 </figure>
               </div>
@@ -692,15 +716,6 @@ const LandingPage = () => {
                     <img
                       className="img-fluid"
                       src="./assets/images/partner4.png"
-                      alt=""
-                    />
-                  </figure>
-                </li>
-                <li>
-                  <figure className="mb-0 partner1 partner5 img5">
-                    <img
-                      className="img-fluid"
-                      src="./assets/images/partner5.png"
                       alt=""
                     />
                   </figure>

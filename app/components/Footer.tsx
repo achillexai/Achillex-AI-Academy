@@ -138,58 +138,18 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div id="fixed-form-container">
-            <div className="image">
-              <figure className="footer-image mb-0">
-                <Image
-                  src="/assets/images/footer-image.png"
-                  alt=""
-                  width={150}
-                  height={150}
-                />
-              </figure>
-            </div>
-            <div className="body">
-              <form id="contactpage1" method="POST" action="./contact-form.php">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Your Name:"
-                    name="name"
+          <div id="fixed-form-container ">
+            <div className="image cursor-pointer">
+              <a href="mailto:support@achillexai.academy">
+                <figure className="footer-image mb-0">
+                  <Image
+                    src="/assets/images/footer-image.png"
+                    alt=""
+                    width={150}
+                    height={150}
                   />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Your Email:"
-                    name="emailid"
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="tel"
-                    className="form-control"
-                    placeholder="Phone:"
-                    name="phone"
-                  />
-                </div>
-                <div className="form-group">
-                  <textarea
-                    className="form_style"
-                    placeholder="Message"
-                    rows={3}
-                    name="msg"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="submit_now text-decoration-none"
-                >
-                  Submit Now
-                </button>
-              </form>
+                </figure>
+              </a>
             </div>
           </div>
           <div className="copyright">
